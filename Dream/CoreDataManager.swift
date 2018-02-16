@@ -69,4 +69,15 @@ class CoreDataManager {
     public func deleteDream(_ object: Dream) {
         managedObjectContext.delete(object)
     }
+    
+    public func saveContext() {
+        if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 }
