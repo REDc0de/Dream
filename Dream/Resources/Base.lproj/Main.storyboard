@@ -13,7 +13,7 @@
         <!--Dreams-->
         <scene sceneID="kTg-zs-S8n">
             <objects>
-                <tableViewController id="Aad-pB-OBk" sceneMemberID="viewController">
+                <tableViewController id="Aad-pB-OBk" customClass="DRDreamsTableViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cDk-7v-FKk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
         <!--Profile-->
         <scene sceneID="O5U-mW-xKD">
             <objects>
-                <tableViewController id="JRf-16-zYo" sceneMemberID="viewController">
+                <tableViewController id="JRf-16-zYo" customClass="DRProfileTableViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yNw-jR-6Lx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,7 +80,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="MwH-vv-oQf">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="fQ0-9H-yCa"/>
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="fQ0-9H-yCa">
+                            <connections>
+                                <action selector="close:" destination="JRf-16-zYo" id="MF8-ox-gNB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNc-RJ-tSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -90,7 +94,7 @@
         <!--Dream-->
         <scene sceneID="UnD-WZ-pym">
             <objects>
-                <viewController id="NHT-i1-DyJ" sceneMemberID="viewController">
+                <viewController id="NHT-i1-DyJ" customClass="DRDreamViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j0n-zO-a5B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +116,7 @@
         <!--History-->
         <scene sceneID="hRV-Bl-74y">
             <objects>
-                <tableViewController id="18c-0q-seu" sceneMemberID="viewController">
+                <tableViewController id="18c-0q-seu" customClass="DRHistoryTableViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bTr-c3-oaz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +136,13 @@
                             <outlet property="delegate" destination="18c-0q-seu" id="GWZ-6y-U1g"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="History" id="FoI-fb-wDa"/>
+                    <navigationItem key="navigationItem" title="History" id="FoI-fb-wDa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="aq2-fG-PSH">
+                            <connections>
+                                <action selector="done:" destination="18c-0q-seu" id="Hm8-Hl-oGC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CS4-Dl-Xvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,7 +151,7 @@
         <!--New Dream-->
         <scene sceneID="w1z-Vg-z9B">
             <objects>
-                <tableViewController id="Wxo-zV-bjb" sceneMemberID="viewController">
+                <tableViewController id="Wxo-zV-bjb" customClass="DRAddTableViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2wV-8v-hnx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,8 +172,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Dream" id="MXb-zY-o6h">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gVc-xg-3wa"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Tlx-V9-AHi"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gVc-xg-3wa">
+                            <connections>
+                                <action selector="cancel:" destination="Wxo-zV-bjb" id="Isr-NH-vhV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Tlx-V9-AHi">
+                            <connections>
+                                <action selector="done:" destination="Wxo-zV-bjb" id="2QI-9r-BMT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCn-dU-bPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
