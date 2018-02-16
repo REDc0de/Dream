@@ -9,6 +9,10 @@
 import UIKit
 
 class DRDreamViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    public var dream: Dream?
 
     override func viewDidLoad() {
         super.viewDidLoad()
