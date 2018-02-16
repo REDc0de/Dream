@@ -80,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				43E425F0203791B300DEB77F /* Dream */,
+				43E426252037925000DEB77F /* Extensions */,
 				43E42608203791B300DEB77F /* DreamTests */,
 				43E42613203791B400DEB77F /* DreamUITests */,
 				43E425EF203791B300DEB77F /* Products */,
@@ -99,13 +100,12 @@
 		43E425F0203791B300DEB77F /* Dream */ = {
 			isa = PBXGroup;
 			children = (
+				43E426222037922400DEB77F /* Models */,
+				43E426232037922C00DEB77F /* Views */,
+				43E426242037923400DEB77F /* Controllers */,
+				43E426262037928800DEB77F /* Resources */,
 				43E425F1203791B300DEB77F /* AppDelegate.swift */,
-				43E425F3203791B300DEB77F /* ViewController.swift */,
-				43E425F5203791B300DEB77F /* Main.storyboard */,
-				43E425FB203791B300DEB77F /* Assets.xcassets */,
-				43E425FD203791B300DEB77F /* LaunchScreen.storyboard */,
 				43E42600203791B300DEB77F /* Info.plist */,
-				43E425F8203791B300DEB77F /* Dream.xcdatamodeld */,
 			);
 			path = Dream;
 			sourceTree = "<group>";
@@ -126,6 +126,46 @@
 				43E42616203791B400DEB77F /* Info.plist */,
 			);
 			path = DreamUITests;
+			sourceTree = "<group>";
+		};
+		43E426222037922400DEB77F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		43E426232037922C00DEB77F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		43E426242037923400DEB77F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				43E425F3203791B300DEB77F /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		43E426252037925000DEB77F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		43E426262037928800DEB77F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				43E425F5203791B300DEB77F /* Main.storyboard */,
+				43E425FD203791B300DEB77F /* LaunchScreen.storyboard */,
+				43E425F8203791B300DEB77F /* Dream.xcdatamodeld */,
+				43E425FB203791B300DEB77F /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,6 +473,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LB8V6BYW89;
 				INFOPLIST_FILE = Dream/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chaikovsky.Dream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -448,6 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LB8V6BYW89;
 				INFOPLIST_FILE = Dream/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chaikovsky.Dream;
 				PRODUCT_NAME = "$(TARGET_NAME)";
