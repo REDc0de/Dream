@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F1203791B300DEB77F /* AppDelegate.swift */; };
+		43E425F4203791B300DEB77F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F3203791B300DEB77F /* ViewController.swift */; };
+		43E425F7203791B300DEB77F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E425F5203791B300DEB77F /* Main.storyboard */; };
+		43E425FA203791B300DEB77F /* Dream.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F8203791B300DEB77F /* Dream.xcdatamodeld */; };
+		43E425FC203791B300DEB77F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E425FB203791B300DEB77F /* Assets.xcassets */; };
+		43E425FF203791B300DEB77F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E425FD203791B300DEB77F /* LaunchScreen.storyboard */; };
+		43E4260A203791B300DEB77F /* DreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42609203791B300DEB77F /* DreamTests.swift */; };
+		43E42615203791B400DEB77F /* DreamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E42614203791B400DEB77F /* DreamUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		43E42606203791B300DEB77F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 43E425E6203791B300DEB77F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43E425ED203791B300DEB77F;
+			remoteInfo = Dream;
+		};
+		43E42611203791B400DEB77F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 43E425E6203791B300DEB77F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43E425ED203791B300DEB77F;
+			remoteInfo = Dream;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		43E425EE203791B300DEB77F /* Dream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dream.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		43E425F1203791B300DEB77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		43E425F3203791B300DEB77F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		43E425F6203791B300DEB77F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		43E425F9203791B300DEB77F /* Dream.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dream.xcdatamodel; sourceTree = "<group>"; };
+		43E425FB203791B300DEB77F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		43E425FE203791B300DEB77F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		43E42600203791B300DEB77F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43E42605203791B300DEB77F /* DreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43E42609203791B300DEB77F /* DreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamTests.swift; sourceTree = "<group>"; };
+		43E4260B203791B300DEB77F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43E42610203791B400DEB77F /* DreamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DreamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43E42614203791B400DEB77F /* DreamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamUITests.swift; sourceTree = "<group>"; };
+		43E42616203791B400DEB77F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		43E425EB203791B300DEB77F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43E42602203791B300DEB77F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43E4260D203791B400DEB77F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		43E425E5203791B300DEB77F = {
+			isa = PBXGroup;
+			children = (
+				43E425F0203791B300DEB77F /* Dream */,
+				43E42608203791B300DEB77F /* DreamTests */,
+				43E42613203791B400DEB77F /* DreamUITests */,
+				43E425EF203791B300DEB77F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		43E425EF203791B300DEB77F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				43E425EE203791B300DEB77F /* Dream.app */,
+				43E42605203791B300DEB77F /* DreamTests.xctest */,
+				43E42610203791B400DEB77F /* DreamUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		43E425F0203791B300DEB77F /* Dream */ = {
+			isa = PBXGroup;
+			children = (
+				43E425F1203791B300DEB77F /* AppDelegate.swift */,
+				43E425F3203791B300DEB77F /* ViewController.swift */,
+				43E425F5203791B300DEB77F /* Main.storyboard */,
+				43E425FB203791B300DEB77F /* Assets.xcassets */,
+				43E425FD203791B300DEB77F /* LaunchScreen.storyboard */,
+				43E42600203791B300DEB77F /* Info.plist */,
+				43E425F8203791B300DEB77F /* Dream.xcdatamodeld */,
+			);
+			path = Dream;
+			sourceTree = "<group>";
+		};
+		43E42608203791B300DEB77F /* DreamTests */ = {
+			isa = PBXGroup;
+			children = (
+				43E42609203791B300DEB77F /* DreamTests.swift */,
+				43E4260B203791B300DEB77F /* Info.plist */,
+			);
+			path = DreamTests;
+			sourceTree = "<group>";
+		};
+		43E42613203791B400DEB77F /* DreamUITests */ = {
+			isa = PBXGroup;
+			children = (
+				43E42614203791B400DEB77F /* DreamUITests.swift */,
+				43E42616203791B400DEB77F /* Info.plist */,
+			);
+			path = DreamUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		43E425ED203791B300DEB77F /* Dream */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43E42619203791B400DEB77F /* Build configuration list for PBXNativeTarget "Dream" */;
+			buildPhases = (
+				43E425EA203791B300DEB77F /* Sources */,
+				43E425EB203791B300DEB77F /* Frameworks */,
+				43E425EC203791B300DEB77F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Dream;
+			productName = Dream;
+			productReference = 43E425EE203791B300DEB77F /* Dream.app */;
+			productType = "com.apple.product-type.application";
+		};
+		43E42604203791B300DEB77F /* DreamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43E4261C203791B400DEB77F /* Build configuration list for PBXNativeTarget "DreamTests" */;
+			buildPhases = (
+				43E42601203791B300DEB77F /* Sources */,
+				43E42602203791B300DEB77F /* Frameworks */,
+				43E42603203791B300DEB77F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				43E42607203791B300DEB77F /* PBXTargetDependency */,
+			);
+			name = DreamTests;
+			productName = DreamTests;
+			productReference = 43E42605203791B300DEB77F /* DreamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		43E4260F203791B400DEB77F /* DreamUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43E4261F203791B400DEB77F /* Build configuration list for PBXNativeTarget "DreamUITests" */;
+			buildPhases = (
+				43E4260C203791B400DEB77F /* Sources */,
+				43E4260D203791B400DEB77F /* Frameworks */,
+				43E4260E203791B400DEB77F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				43E42612203791B400DEB77F /* PBXTargetDependency */,
+			);
+			name = DreamUITests;
+			productName = DreamUITests;
+			productReference = 43E42610203791B400DEB77F /* DreamUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		43E425E6203791B300DEB77F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Bogdan Chaikovsky";
+				TargetAttributes = {
+					43E425ED203791B300DEB77F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					43E42604203791B300DEB77F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 43E425ED203791B300DEB77F;
+					};
+					43E4260F203791B400DEB77F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 43E425ED203791B300DEB77F;
+					};
+				};
+			};
+			buildConfigurationList = 43E425E9203791B300DEB77F /* Build configuration list for PBXProject "Dream" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 43E425E5203791B300DEB77F;
+			productRefGroup = 43E425EF203791B300DEB77F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				43E425ED203791B300DEB77F /* Dream */,
+				43E42604203791B300DEB77F /* DreamTests */,
+				43E4260F203791B400DEB77F /* DreamUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		43E425EC203791B300DEB77F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43E425FF203791B300DEB77F /* LaunchScreen.storyboard in Resources */,
+				43E425FC203791B300DEB77F /* Assets.xcassets in Resources */,
+				43E425F7203791B300DEB77F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43E42603203791B300DEB77F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43E4260E203791B400DEB77F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		43E425EA203791B300DEB77F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43E425F4203791B300DEB77F /* ViewController.swift in Sources */,
+				43E425FA203791B300DEB77F /* Dream.xcdatamodeld in Sources */,
+				43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43E42601203791B300DEB77F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43E4260A203791B300DEB77F /* DreamTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43E4260C203791B400DEB77F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43E42615203791B400DEB77F /* DreamUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		43E42607203791B300DEB77F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43E425ED203791B300DEB77F /* Dream */;
+			targetProxy = 43E42606203791B300DEB77F /* PBXContainerItemProxy */;
+		};
+		43E42612203791B400DEB77F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43E425ED203791B300DEB77F /* Dream */;
+			targetProxy = 43E42611203791B400DEB77F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		43E425F5203791B300DEB77F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43E425F6203791B300DEB77F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		43E425FD203791B300DEB77F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43E425FE203791B300DEB77F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		43E42617203791B400DEB77F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		43E42618203791B400DEB77F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		43E4261A203791B400DEB77F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LB8V6BYW89;
+				INFOPLIST_FILE = Dream/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chaikovsky.Dream;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		43E4261B203791B400DEB77F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LB8V6BYW89;
+				INFOPLIST_FILE = Dream/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chaikovsky.Dream;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		43E4261D203791B400DEB77F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LB8V6BYW89;
+				INFOPLIST_FILE = DreamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chaikovsky.DreamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dream.app/Dream";
+			};
+			name = Debug;
+		};
+		43E4261E203791B400DEB77F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LB8V6BYW89;
+				INFOPLIST_FILE = DreamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chaikovsky.DreamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dream.app/Dream";
+			};
+			name = Release;
+		};
+		43E42620203791B400DEB77F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LB8V6BYW89;
+				INFOPLIST_FILE = DreamUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chaikovsky.DreamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Dream;
+			};
+			name = Debug;
+		};
+		43E42621203791B400DEB77F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LB8V6BYW89;
+				INFOPLIST_FILE = DreamUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chaikovsky.DreamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Dream;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		43E425E9203791B300DEB77F /* Build configuration list for PBXProject "Dream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43E42617203791B400DEB77F /* Debug */,
+				43E42618203791B400DEB77F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43E42619203791B400DEB77F /* Build configuration list for PBXNativeTarget "Dream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43E4261A203791B400DEB77F /* Debug */,
+				43E4261B203791B400DEB77F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43E4261C203791B400DEB77F /* Build configuration list for PBXNativeTarget "DreamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43E4261D203791B400DEB77F /* Debug */,
+				43E4261E203791B400DEB77F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43E4261F203791B400DEB77F /* Build configuration list for PBXNativeTarget "DreamUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43E42620203791B400DEB77F /* Debug */,
+				43E42621203791B400DEB77F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		43E425F8203791B300DEB77F /* Dream.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				43E425F9203791B300DEB77F /* Dream.xcdatamodel */,
+			);
+			currentVersion = 43E425F9203791B300DEB77F /* Dream.xcdatamodel */;
+			path = Dream.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 43E425E6203791B300DEB77F /* Project object */;
+}
