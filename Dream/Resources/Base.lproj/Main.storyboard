@@ -99,6 +99,21 @@
                     <view key="view" contentMode="scaleToFill" id="j0n-zO-a5B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-sj-BWx" customClass="DRProgressView" customModule="Dream" customModuleProvider="target">
+                                <rect key="frame" x="16" y="149" width="343" height="351"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycl-ts-skc">
+                                <rect key="frame" x="144" y="665" width="87" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="add:" destination="NHT-i1-DyJ" eventType="touchUpInside" id="vUC-ug-nKZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="rHC-gn-nOh"/>
                     </view>
@@ -109,10 +124,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="progressView" destination="b8V-sj-BWx" id="lTe-p3-Xiu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVU-1N-Lex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="971"/>
+            <point key="canvasLocation" x="2101.5999999999999" y="970.93596059113304"/>
         </scene>
         <!--History-->
         <scene sceneID="hRV-Bl-74y">
@@ -123,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="k6p-kD-k6J">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DRHistoryTableViewController" id="k6p-kD-k6J">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k6p-kD-k6J" id="GYC-xx-DkB">
@@ -140,7 +158,7 @@
                     <navigationItem key="navigationItem" title="History" id="FoI-fb-wDa">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="aq2-fG-PSH">
                             <connections>
-                                <action selector="done:" destination="18c-0q-seu" id="Hm8-Hl-oGC"/>
+                                <action selector="done:" destination="18c-0q-seu" id="YVf-go-38D"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
