@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
@@ -100,21 +101,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-sj-BWx" customClass="DRProgressView" customModule="Dream" customModuleProvider="target">
-                                <rect key="frame" x="16" y="149" width="343" height="351"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-sj-BWx" customClass="DRProgressView" customModule="Dream" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="193" width="375" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="b8V-sj-BWx" secondAttribute="height" multiplier="1:1" id="1gx-Rk-xiX"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycl-ts-skc">
-                                <rect key="frame" x="144" y="665" width="87" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycl-ts-skc">
+                                <rect key="frame" x="122.66666666666669" y="578" width="130" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="98Q-bg-CDJ"/>
+                                    <constraint firstAttribute="height" constant="21" id="iBA-NK-sqn"/>
+                                </constraints>
+                                <state key="normal" title="Tap to add money"/>
                                 <connections>
                                     <action selector="add:" destination="NHT-i1-DyJ" eventType="touchUpInside" id="vUC-ug-nKZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DGr-V4-nnh">
+                                <rect key="frame" x="135" y="148" width="225" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="sgM-mm-2wn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSv-j6-fZy">
+                                <rect key="frame" x="135" y="103" width="225" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" red="0.90588235294117647" green="0.83137254901960778" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b8V-sj-BWx" firstAttribute="top" secondItem="DGr-V4-nnh" secondAttribute="bottom" constant="5" id="0XX-yO-5Xk"/>
+                            <constraint firstItem="rHC-gn-nOh" firstAttribute="trailing" secondItem="b8V-sj-BWx" secondAttribute="trailing" id="2Il-sF-KLl"/>
+                            <constraint firstItem="Ycl-ts-skc" firstAttribute="centerX" secondItem="rHC-gn-nOh" secondAttribute="centerX" id="5xi-bl-fkV"/>
+                            <constraint firstItem="rHC-gn-nOh" firstAttribute="trailing" secondItem="kSv-j6-fZy" secondAttribute="trailing" constant="15" id="8uq-6A-5Lv"/>
+                            <constraint firstItem="b8V-sj-BWx" firstAttribute="leading" secondItem="rHC-gn-nOh" secondAttribute="leading" id="A8J-hi-ezp"/>
+                            <constraint firstItem="rHC-gn-nOh" firstAttribute="trailing" secondItem="DGr-V4-nnh" secondAttribute="trailing" constant="15" id="Cfj-2j-LY4"/>
+                            <constraint firstItem="kSv-j6-fZy" firstAttribute="top" secondItem="rHC-gn-nOh" secondAttribute="top" constant="15" id="PUf-8w-gSq"/>
+                            <constraint firstItem="kSv-j6-fZy" firstAttribute="width" secondItem="DGr-V4-nnh" secondAttribute="width" id="Q73-XW-Ojo"/>
+                            <constraint firstItem="DGr-V4-nnh" firstAttribute="top" secondItem="kSv-j6-fZy" secondAttribute="bottom" constant="5" id="RaM-wz-9Tu"/>
+                            <constraint firstItem="Ycl-ts-skc" firstAttribute="top" secondItem="b8V-sj-BWx" secondAttribute="bottom" constant="10" id="Trf-av-Zl9"/>
+                            <constraint firstItem="kSv-j6-fZy" firstAttribute="height" secondItem="DGr-V4-nnh" secondAttribute="height" id="gma-01-Hsb"/>
+                            <constraint firstItem="DGr-V4-nnh" firstAttribute="width" secondItem="j0n-zO-a5B" secondAttribute="width" multiplier="3:5" id="kXK-aS-gSB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rHC-gn-nOh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dream" id="Kgq-cU-tCL">
@@ -126,6 +161,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="progressView" destination="b8V-sj-BWx" id="lTe-p3-Xiu"/>
+                        <outlet property="targetCreditsLabel" destination="DGr-V4-nnh" id="Agu-u8-Q00"/>
+                        <outlet property="targetDateLabel" destination="kSv-j6-fZy" id="jxL-fy-zlX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVU-1N-Lex" userLabel="First Responder" sceneMemberID="firstResponder"/>

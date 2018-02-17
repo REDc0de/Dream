@@ -14,9 +14,11 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     
     public var dream: Dream?
 
-    // MARK: - Outlets
+    // MARK: - Outlets    
     
-    @IBOutlet weak var progressView: DRProgressView!
+    @IBOutlet weak var targetDateLabel   : UILabel!
+    @IBOutlet weak var targetCreditsLabel: UILabel!
+    @IBOutlet weak var progressView      : DRProgressView!
     
     
     override func viewDidLoad() {
@@ -32,7 +34,18 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        
+        let date = dream?.targetDate ?? Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        let result = formatter.string(from: date)
+        
         progressView.dream = dream
+        
+        targetDateLabel.text = result
+        
+        let credits = dream?.targetCredits ?? 0
+        targetCreditsLabel.text = String(format: "%.f$", credits)
     }
     
     // MARK: Actions
