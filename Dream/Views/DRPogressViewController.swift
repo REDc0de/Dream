@@ -10,24 +10,38 @@ import UIKit
 
 class DRProgressView: UIView {
     
+    // MARK: - Constants
+    
     let dateShapeLayer    = CAShapeLayer()
     let expenseShapeLayer = CAShapeLayer()
     let percentageLabel   = UILabel()
+    
+    let expenseLineWidth: CGFloat  = 36
+    let dateLineWidth   : CGFloat  = 28
+    
+    // MARK: - Properties
+
     var timer: Timer?
-    
-    let expenseLineWidth: CGFloat  = 35
-    let dateLineWidth   : CGFloat  = 23
-    
     var dream: Dream? {
         didSet {
-            
             updateExpense()
-            //strokeAnimation(for: dateShapeLayer,    with: dateProgress,    animate: true)
-            //strokeAnimation(for: expenseShapeLayer, with: expenseProgress, animate: true)
-
         }
     }
     
+    var expenseProgress: Double {
+        get{
+            return Double().progress(between: dream?.currentCredits, and: dream?.targetCredits)
+        }
+    }
+    
+    var dateProgress: Double {
+        get{
+            return Double().progress(between: dream?.startDate, and: dream?.targetDate)
+        }
+    }
+    
+    // MARK: Lifecicle
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -40,28 +54,28 @@ class DRProgressView: UIView {
         self.setup()
     }
     
+    // MARK: Methods
+    
     private func setup() {
         
         // Percentage label
         
-        percentageLabel.font = UIFont.systemFont(ofSize: 47)
+        percentageLabel.font          = UIFont.systemFont(ofSize: 47)
         percentageLabel.textAlignment = .center
+        percentageLabel.frame         = CGRect(x: 0, y: 0, width: 120, height: 100)
+        percentageLabel.center        = CGPoint(x: frame.width/2, y: frame.height/2)
+        
         addSubview(percentageLabel)
-        percentageLabel.frame  = CGRect(x: 0, y: 0, width: 120, height: 100)
-        percentageLabel.center =  CGPoint(x: frame.width/2, y: frame.height/2)
         
         // Expense layer
         
         let expenseLayerRadius = (260/375*(self.frame.width > self.frame.height ? self.frame.height : self.frame.width)-expenseLineWidth)/2
-        
-        
-        setupCircleShapeLayer(layer: expenseShapeLayer, lineWidth: expenseLineWidth, radius: expenseLayerRadius, strokeColor: UIColor.intensiveRed.cgColor, bgStrokeColor: UIColor.lightGray.withAlphaComponent(0.1).cgColor)
+        setupCircleShapeLayer(layer: expenseShapeLayer, lineWidth: expenseLineWidth, radius: expenseLayerRadius, strokeColor: self.tintColor.cgColor, bgStrokeColor: UIColor.lightGray.withAlphaComponent(0.1).cgColor)
         
         // Date layer
         
         let dateLayerRadius = (335/375*(frame.width > frame.height ? frame.height : frame.width)-dateLineWidth)/2
-        
-        setupCircleShapeLayer(layer: dateShapeLayer, lineWidth: dateLineWidth, radius: dateLayerRadius, strokeColor: UIColor.purpleRed.cgColor, bgStrokeColor: UIColor.lightGray.withAlphaComponent(0.1).cgColor)
+        setupCircleShapeLayer(layer: dateShapeLayer, lineWidth: dateLineWidth, radius: dateLayerRadius, strokeColor: self.tintColor.withAlphaComponent(0.2).cgColor, bgStrokeColor: UIColor.lightGray.withAlphaComponent(0.1).cgColor)
         
         // Timer
         let targetDate = dream?.targetDate ?? Date()
@@ -71,24 +85,31 @@ class DRProgressView: UIView {
         
         timer = Timer.scheduledTimer(timeInterval: deltaYear, target: self, selector: #selector(updateDateProgress), userInfo: nil, repeats: true)
     }
-
     
     @objc private func updateDateProgress() {
-        let dateProgress = Double().progress(between: dream?.startDate, and: dream?.targetDate)
+//        let expenseProgress = Double().progress(between: dream?.currentCredits, and: dream?.targetCredits)
+//
+//        if dateProgress > expenseProgress {
+//            if expenseShapeLayer.animation(forKey: "opacityAnimation") == nil {
+//                opacityAnimation(for: expenseShapeLayer, animate: true)
+//            }
+//        } else {
+//            if expenseShapeLayer.animation(forKey: "opacityAnimation") != nil {
+//                expenseShapeLayer.removeAnimation(forKey: "opacityAnimation")
+//            }
+//        }
         
-        if dateProgress == 1 {
-            timer?.invalidate()
-            return
-        }
+//        if dateProgress == 1 {
+//            timer?.invalidate()
+//            return
+//        }
         
         DispatchQueue.main.async {
-            self.dateShapeLayer.strokeEnd = CGFloat(dateProgress)
+            self.dateShapeLayer.strokeEnd = CGFloat(self.dateProgress)
         }
     }
     
     private func updateExpense() {
-        let expenseProgress = Double().progress(between: dream?.currentCredits, and: dream?.targetCredits)
-
         expenseShapeLayer.strokeEnd = CGFloat(expenseProgress)
         percentageLabel  .text      = " \(Int(expenseProgress * 100))%"
     }
@@ -96,17 +117,15 @@ class DRProgressView: UIView {
     private func setupCircleShapeLayer(layer: CAShapeLayer, lineWidth: CGFloat, radius: CGFloat, strokeColor: CGColor, bgStrokeColor: CGColor) {
         
         let backgroundLayer = CAShapeLayer()
-        let center          = CGPoint(x: frame.width/2, y: frame.height/2)
-        let startAngle      = -CGFloat.pi / 2
-        let endAngle        = 2 * CGFloat.pi
-        
-        let circularPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+
+        let circularPath = UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: 0, endAngle: 2*CGFloat.pi, clockwise: true)
        
         backgroundLayer.path        = circularPath.cgPath
         backgroundLayer.strokeColor = bgStrokeColor
         backgroundLayer.lineWidth   = lineWidth
         backgroundLayer.fillColor   = UIColor.clear.cgColor
         backgroundLayer.lineCap     = kCALineCapRound
+        backgroundLayer.position    = CGPoint(x: frame.width/2, y: frame.height/2)
         
         self.layer.addSublayer(backgroundLayer)
         
@@ -116,19 +135,16 @@ class DRProgressView: UIView {
         layer.fillColor   = UIColor.clear.cgColor
         layer.lineCap     = kCALineCapRound
         layer.strokeEnd   = 0
-        
+        layer.position    = CGPoint(x: frame.width/2, y: frame.height/2)
+        layer.transform   = CATransform3DMakeRotation(-CGFloat.pi/2, 0, 0, 1)
+
         self.layer.addSublayer(layer)
     }
     
-    private func opacityAnimation(for layer: CAShapeLayer, animate: Bool) {
-        if !animate {
-            layer.removeAnimation(forKey: "opacityAnimation")
-            return
-        }
-        
+    private func opacityAnimation(for layer: CAShapeLayer) {
         let pulseAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
         
-        pulseAnimation.duration       = 0.7
+        pulseAnimation.duration       = 0.6
         pulseAnimation.fromValue      = 0.3
         pulseAnimation.toValue        = 1
         pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
@@ -138,12 +154,7 @@ class DRProgressView: UIView {
         layer.add(pulseAnimation, forKey: "opacityAnimation")
     }
     
-    private func strokeAnimation(for layer: CAShapeLayer, with value: Double, animate: Bool) {
-        if !animate {
-            layer.removeAnimation(forKey: "strokeAnimation")
-            return
-        }
-
+    private func strokeAnimation(for layer: CAShapeLayer, with value: Double) {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
 
         basicAnimation.toValue               = value

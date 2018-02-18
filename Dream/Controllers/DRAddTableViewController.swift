@@ -47,6 +47,8 @@ class DRAddTableViewController: UITableViewController {
         
         imagePicker.delegate = self
         
+        datePicker.minimumDate = Date()
+        
         targetDate = Date()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dissmissKeyboard))

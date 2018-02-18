@@ -10,13 +10,13 @@ import UIKit
 
 class DRDreamsTableViewController: UITableViewController {
     
-    // MARK: Properties
+    // MARK: - Properties
     
     fileprivate var dreams           = [Dream]()
     fileprivate var filteredDreams   = [Dream]()
     fileprivate var searchController = UISearchController(searchResultsController: nil)
     
-    // MARK: Lifecicle
+    // MARK: - Lifecicle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class DRDreamsTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     
     fileprivate func isFiltering() -> Bool {
         

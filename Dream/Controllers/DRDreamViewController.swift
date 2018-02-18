@@ -37,7 +37,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         
         let date = dream?.targetDate ?? Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
+        formatter.dateFormat = "dd MMMM yyyy"
         let result = formatter.string(from: date)
         
         progressView.dream = dream
@@ -49,8 +49,8 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: Actions
-
-    @IBAction func add(_ sender: UIButton) {
+    
+    @IBAction func add(_ sender: UITapGestureRecognizer) {
         
         var amountTextField: UITextField?
         
@@ -102,8 +102,9 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+ 
         
-        //        if segue.destination == DRHistoryTableViewController {
+//        //        if segue.destination == DRHistoryTableViewController {
         let controller = segue.destination as? DRHistoryTableViewController
         controller?.dream = self.dream
         //        }
