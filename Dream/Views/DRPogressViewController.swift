@@ -67,7 +67,7 @@ class DRProgressView: UIView {
         percentageLabel.textAlignment = .center
         percentageLabel.frame         = CGRect(x: 0, y: 0, width: 140, height: 100)
         percentageLabel.center        = CGPoint(x: frame.width/2, y: frame.height/2)
-        
+
         addSubview(percentageLabel)
         
         // Expense layer
@@ -90,25 +90,13 @@ class DRProgressView: UIView {
     }
     
     @objc private func updateDateProgress() {
-//        let expenseProgress = Double().progress(between: dream?.currentCredits, and: dream?.targetCredits)
-//
-//        if dateProgress > expenseProgress {
-//            if expenseShapeLayer.animation(forKey: "opacityAnimation") == nil {
-//                opacityAnimation(for: expenseShapeLayer, animate: true)
-//            }
-//        } else {
-//            if expenseShapeLayer.animation(forKey: "opacityAnimation") != nil {
-//                expenseShapeLayer.removeAnimation(forKey: "opacityAnimation")
-//            }
-//        }
-        
-//        if dateProgress == 1 {
-//            timer?.invalidate()
-//            return
-//        }
-        
         DispatchQueue.main.async {
             self.dateShapeLayer.strokeEnd = CGFloat(self.dateProgress)
+        }
+        
+        if dateProgress == 1 {
+            timer?.invalidate()
+            return
         }
     }
     
