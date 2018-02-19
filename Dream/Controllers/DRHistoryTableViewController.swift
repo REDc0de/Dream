@@ -32,10 +32,10 @@ class DRHistoryTableViewController: UITableViewController {
         
         transactions = [Transaction]()
         
-        let array = self.dream?.transactions ?? []
+        let array = dream?.transactions ?? []
         
         for transaction in array {
-            self.transactions.append(transaction as! Transaction)
+            transactions.append(transaction as! Transaction)
         }
     }
     
@@ -48,7 +48,7 @@ class DRHistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return self.transactions.count
+        return transactions.count
     }
     
     

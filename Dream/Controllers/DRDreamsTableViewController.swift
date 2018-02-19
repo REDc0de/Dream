@@ -23,14 +23,14 @@ class DRDreamsTableViewController: UITableViewController {
         
         self.clearsSelectionOnViewWillAppear = true
         
-        self.setupNavBar()
+        setupNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.dreams         = CoreDataManager.sharedInstance.fetchDreams()
-        self.filteredDreams = self.dreams
+        dreams         = CoreDataManager.sharedInstance.fetchDreams()
+        filteredDreams = dreams
         self.tableView.reloadData()
     }
     
@@ -38,21 +38,21 @@ class DRDreamsTableViewController: UITableViewController {
     
     fileprivate func isFiltering() -> Bool {
         
-        return self.searchController.isActive && !self.searchBarIsEmpty()
+        return searchController.isActive && !searchBarIsEmpty()
     }
     
     fileprivate func searchBarIsEmpty() -> Bool {
         
-        return self.searchController.searchBar.text?.isEmpty ?? true
+        return searchController.searchBar.text?.isEmpty ?? true
     }
     
     fileprivate func setupNavBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        self.searchController.searchResultsUpdater                 = self
-        self.searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater                 = self
+        searchController.obscuresBackgroundDuringPresentation = false
         
-        self.navigationItem.searchController            = self.searchController
+        self.navigationItem.searchController            = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = true
         
         self.definesPresentationContext = true
@@ -61,9 +61,9 @@ class DRDreamsTableViewController: UITableViewController {
     private func moveItem(at sourceIndex: Int, to destinationIndex: Int) {
         guard sourceIndex != destinationIndex else { return }
         
-        let dream = self.dreams[sourceIndex]
-        self.dreams.remove(at: sourceIndex)
-        self.dreams.insert(dream, at: destinationIndex)
+        let dream = dreams[sourceIndex]
+        dreams.remove(at: sourceIndex)
+        dreams.insert(dream, at: destinationIndex)
     }
     
     // MARK: - Table view data source
@@ -75,15 +75,15 @@ class DRDreamsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.isFiltering() ? self.filteredDreams.count : self.dreams.count
+        return isFiltering() ? filteredDreams.count : dreams.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRDreamsTableViewControllerCell", for: indexPath)
         
-        let dreams = self.isFiltering() ? self.filteredDreams : self.dreams
-        cell.textLabel?.text = dreams[indexPath.row].name
+        let dreamsArray = isFiltering() ? filteredDreams : dreams
+        cell.textLabel?.text = dreamsArray[indexPath.row].name
         
         return cell
     }
@@ -101,18 +101,18 @@ class DRDreamsTableViewController: UITableViewController {
             
             var dream = Dream()
             
-            if self.isFiltering() {
-                dream = self.filteredDreams[indexPath.row]
-                self.filteredDreams.remove(at: indexPath.row)
+            if isFiltering() {
+                dream = filteredDreams[indexPath.row]
+                filteredDreams.remove(at: indexPath.row)
             } else {
-                dream = self.dreams[indexPath.row]
+                dream = dreams[indexPath.row]
             }
             
-            guard let index = self.dreams.index(of: dream) else {
+            guard let index = dreams.index(of: dream) else {
                 return
             }
             
-            self.dreams.remove(at: index)
+            dreams.remove(at: index)
             
             CoreDataManager.sharedInstance.deleteDream(dream)
             CoreDataManager.sharedInstance.saveContext()
@@ -145,7 +145,7 @@ class DRDreamsTableViewController: UITableViewController {
             guard let indexPath      = tableView.indexPath(for: cell)              else { return }
             guard let viewController = segue.destination as? DRDreamViewController else { return }
             
-            let array = self.isFiltering() ? self.filteredDreams : self.dreams
+            let array = isFiltering() ? filteredDreams : dreams
             viewController.dream = array[indexPath.row]
         }
     }
@@ -156,7 +156,7 @@ extension DRDreamsTableViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.isActive {
-            self.filteredDreams = self.dreams.filter({( dream : Dream) -> Bool in
+            filteredDreams = dreams.filter({( dream : Dream) -> Bool in
                 
                 return dream.name?.lowercased().contains((searchController.searchBar.text ?? String()).lowercased()) ?? false
             })

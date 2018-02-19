@@ -107,7 +107,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         
 //        //        if segue.destination == DRHistoryTableViewController {
         let controller = segue.destination as? DRHistoryTableViewController
-        controller?.dream = self.dream
+        controller?.dream = dream
         //        }
     }
 

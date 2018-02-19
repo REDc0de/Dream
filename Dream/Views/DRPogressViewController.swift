@@ -20,21 +20,24 @@ class DRProgressView: UIView {
     let dateLineWidth   : CGFloat  = 28
     
     // MARK: - Properties
-
-    var timer: Timer?
-    var dream: Dream? {
+    
+    public var dream: Dream? {
         didSet {
-            updateExpense()
+            updateExpenseProgress()
         }
     }
     
-    var expenseProgress: Double {
+    // MARK: - Internal Properties
+
+    private var timer: Timer?
+    
+    private var expenseProgress: Double {
         get{
             return Double().progress(between: dream?.currentCredits, and: dream?.targetCredits)
         }
     }
     
-    var dateProgress: Double {
+    private var dateProgress: Double {
         get{
             return Double().progress(between: dream?.startDate, and: dream?.targetDate)
         }
@@ -62,7 +65,7 @@ class DRProgressView: UIView {
         
         percentageLabel.font          = UIFont.systemFont(ofSize: 47)
         percentageLabel.textAlignment = .center
-        percentageLabel.frame         = CGRect(x: 0, y: 0, width: 120, height: 100)
+        percentageLabel.frame         = CGRect(x: 0, y: 0, width: 140, height: 100)
         percentageLabel.center        = CGPoint(x: frame.width/2, y: frame.height/2)
         
         addSubview(percentageLabel)
@@ -109,7 +112,7 @@ class DRProgressView: UIView {
         }
     }
     
-    private func updateExpense() {
+    private func updateExpenseProgress() {
         expenseShapeLayer.strokeEnd = CGFloat(expenseProgress)
         percentageLabel  .text      = " \(Int(expenseProgress * 100))%"
     }
@@ -118,7 +121,7 @@ class DRProgressView: UIView {
         
         let backgroundLayer = CAShapeLayer()
 
-        let circularPath = UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: 0, endAngle: 2*CGFloat.pi, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: radius, startAngle: 0, endAngle: 2*CGFloat.pi, clockwise: true)
        
         backgroundLayer.path        = circularPath.cgPath
         backgroundLayer.strokeColor = bgStrokeColor

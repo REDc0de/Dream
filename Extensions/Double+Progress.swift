@@ -11,7 +11,6 @@ import UIKit
 extension Double {
     
     public func progress(between startDate: Date?, and targetDate: Date?) -> Double {
-        
         guard let startDate = startDate, let targetDate = targetDate else { return 0 }
         
         var progress = Double((Date().timeIntervalSinceNow - startDate.timeIntervalSinceNow) / (targetDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow))
@@ -24,7 +23,6 @@ extension Double {
     }
     
     public func progress(between number: Double?, and targetNumber: Double?) -> Double {
-        
         guard let number = number, let targetNumber = targetNumber else { return 0 }
         
         var progress = number/targetNumber
