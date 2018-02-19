@@ -16,8 +16,9 @@ extension Double {
         
         var progress = Double((Date().timeIntervalSinceNow - startDate.timeIntervalSinceNow) / (targetDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow))
         
-        if progress < 0 { progress = 0}
-        if progress > 1 { progress = 1}
+        if progress.isNaN { progress = 0 }
+        if progress < 0   { progress = 0 }
+        if progress > 1   { progress = 1 }
         
         return progress
     }
@@ -28,8 +29,9 @@ extension Double {
         
         var progress = number/targetNumber
         
-        if progress < 0 { progress = 0}
-        if progress > 1 { progress = 1}
+        if progress.isNaN { progress = 0 }
+        if progress < 0   { progress = 0 }
+        if progress > 1   { progress = 1 }
         
         return progress
     }
