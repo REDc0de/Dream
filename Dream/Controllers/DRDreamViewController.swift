@@ -20,6 +20,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var targetCreditsLabel: UILabel!
     @IBOutlet weak var progressView      : DRProgressView!
     
+    // MARK: - Lifecicle
     
     override func viewDidLoad() {
         super.viewDidLoad()

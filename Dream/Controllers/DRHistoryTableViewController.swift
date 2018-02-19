@@ -10,8 +10,12 @@ import UIKit
 
 class DRHistoryTableViewController: UITableViewController {
     
+    // MARK: - Properties
+    
     public var dream: Dream?
     public var transactions: [Transaction] = [Transaction]()
+    
+    // MARK: - Lifecicle
     
     override func viewDidLoad() {
         super.viewDidLoad()

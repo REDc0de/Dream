@@ -40,7 +40,7 @@ class DRProgressView: UIView {
         }
     }
     
-    // MARK: Lifecicle
+    // MARK: - Lifecicle
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,7 +54,7 @@ class DRProgressView: UIView {
         self.setup()
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     
     private func setup() {
         
