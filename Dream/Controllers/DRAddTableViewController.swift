@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import Photos.PHPhotoLibrary
 
 class DRAddTableViewController: UITableViewController {
     
@@ -45,7 +47,8 @@ class DRAddTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imagePicker.delegate = self
+        imagePicker.delegate      = self
+        imagePicker.allowsEditing = true
         
         datePicker.minimumDate = Date()
         
@@ -76,37 +79,125 @@ class DRAddTableViewController: UITableViewController {
     }
     
     private func showImagePickerActionSheet() {
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Source Type", message: "Choose source type for picking image", preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert:UIAlertAction!) -> Void in
-            self.openCamera()
-        }))
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+                self.presentCamera()
+            }))
+        }
         
-        actionSheet.addAction(UIAlertAction(title: "Photo library", style: .default, handler: { (alert:UIAlertAction!) -> Void in
-            self.openPhotoLibrary()
-        }))
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            actionSheet.addAction(UIAlertAction(title: "Photo library", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+                self.presentPhotoLibrary()
+            }))
+        }
+        
+        if actionSheet.actions.isEmpty {
+            // Case that should never happen
+            presentAlert(title: "Warning", message: "No available source type.")
+            
+            return
+        }
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(actionSheet, animated: true, completion: nil)
     }
     
-    private func openCamera() {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.sourceType    = .camera
-            imagePicker.allowsEditing = true
-            present(imagePicker, animated: true, completion: nil)
-        } else {
-            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
+    private func presentCamera() {
+        imagePicker.sourceType = .camera
+        
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .restricted:
+            presentAlertWhenStatus(isDenied: false, sourceType: .camera)
+        case .denied:
+            presentAlertWhenStatus(isDenied: true, sourceType: .camera)
+        case .authorized:
+            present(imagePicker, animated: true)
+        case .notDetermined:
+            present(imagePicker, animated: true) {
+                AVCaptureDevice.requestAccess(for: .video) {
+                    guard !$0 else {
+                        
+                        return
+                    }
+                    DispatchQueue.main.async {
+                       self.imagePicker.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
         }
     }
     
-    private func openPhotoLibrary() {
-        imagePicker.sourceType    = .photoLibrary
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
+    private func presentPhotoLibrary() {
+        imagePicker.sourceType = .photoLibrary
+
+        switch PHPhotoLibrary.authorizationStatus() {
+        case .restricted:
+            presentAlertWhenStatus(isDenied: false, sourceType: .photoLibrary)
+        case .denied:
+            presentAlertWhenStatus(isDenied: true, sourceType: .photoLibrary)
+        case .authorized:
+            present(imagePicker, animated: true)
+        case .notDetermined:
+            present(imagePicker, animated: true) {
+                PHPhotoLibrary.requestAuthorization {
+                    guard $0 != .authorized else {
+                        
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.imagePicker.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+    }
+    
+    fileprivate func presentAlertWhenStatus(isDenied: Bool, sourceType: UIImagePickerControllerSourceType) {
+        
+        let info: (title: String, message: String)
+        
+        if sourceType == .camera {
+            if isDenied {
+                info = (
+                    NSLocalizedString("Camera access is denied", comment: "Title for alert when camera access is denied by user"),
+                    NSLocalizedString("The application needs access to the camera. Do you want to open the settings and allow the application to use the camera?", comment: "Message for alert when camera access is denied by user")
+                )
+            }
+            else {
+                info = (
+                    NSLocalizedString("You are not allowed to access the camera", comment: "Title for alert when camera access is restricted for user"),
+                    NSLocalizedString("The application needs access to the camera. Do you want to open the settings and allow the application to use the camera?", comment: "Message for alert when camera access is restricted for user")
+                )
+            }
+        }
+        else if isDenied {
+            info = (
+                NSLocalizedString("Photos access is denied", comment: "Title for alert when Photos access is denied by user"),
+                NSLocalizedString("The application needs access to the Photos. Do you want to open the settings and allow the application to use the Photos?", comment: "Message for alert when Photos access is denied by user")
+            )
+        }
+        else {
+            info = (
+                NSLocalizedString("You are not allowed to access the Photos", comment: "Title for alert when Photos access is restricted for user"),
+                NSLocalizedString("The application needs access to the Photos. Do you want to open the settings and allow the application to use the Photos?", comment: "Message for alert when Photos access is restricted for user")
+            )
+        }
+        
+        let action = { (url: URL?) -> Swift.Void in
+            if let url = url {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        
+        presentAlert(
+            title    : info.title,
+            message  : info.message,
+            yesAction: { action(URL(string: UIApplicationOpenSettingsURLString)) },
+            noAction : { action(nil) }
+        )
     }
     
     @objc private func dissmissKeyboard() {
@@ -196,16 +287,26 @@ extension DRAddTableViewController: UITextFieldDelegate {
     
 }
 
+extension DRAddTableViewController: UITextViewDelegate {
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if isDatePickerVisible { toggleDatePicker() }
+        
+        return true
+    }
+    
+}
+
 extension DRAddTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dreamImageView.image =  info[UIImagePickerControllerEditedImage] as? UIImage == nil ? info[UIImagePickerControllerOriginalImage] as? UIImage : info[UIImagePickerControllerEditedImage] as? UIImage
         
-        dismiss(animated: true, completion: nil)
+        imagePicker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+        imagePicker.dismiss(animated: true, completion: nil)
     }
     
 }

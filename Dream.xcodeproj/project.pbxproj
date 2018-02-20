@@ -23,6 +23,7 @@
 		43E426342037B16800DEB77F /* DRPogressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E426332037B16800DEB77F /* DRPogressViewController.swift */; };
 		43E426362037B1AB00DEB77F /* UIColor+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E426352037B1AB00DEB77F /* UIColor+Palette.swift */; };
 		43E426382037B1CE00DEB77F /* Double+Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E426372037B1CE00DEB77F /* Double+Progress.swift */; };
+		B0D837B6203C5604005F48E0 /* UIViewController+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D837B5203C5604005F48E0 /* UIViewController+UIAlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		43E426332037B16800DEB77F /* DRPogressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRPogressViewController.swift; sourceTree = "<group>"; };
 		43E426352037B1AB00DEB77F /* UIColor+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Palette.swift"; sourceTree = "<group>"; };
 		43E426372037B1CE00DEB77F /* Double+Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Progress.swift"; sourceTree = "<group>"; };
+		B0D837B5203C5604005F48E0 /* UIViewController+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlertController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +118,7 @@
 		43E425F0203791B300DEB77F /* Dream */ = {
 			isa = PBXGroup;
 			children = (
-				43E426222037922400DEB77F /* Models */,
+				B0D837B9203C6BBF005F48E0 /* Models */,
 				43E426232037922C00DEB77F /* Views */,
 				43E426242037923400DEB77F /* Controllers */,
 				43E426262037928800DEB77F /* Resources */,
@@ -145,13 +147,6 @@
 			path = DreamUITests;
 			sourceTree = "<group>";
 		};
-		43E426222037922400DEB77F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		43E426232037922C00DEB77F /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				43E426352037B1AB00DEB77F /* UIColor+Palette.swift */,
+				B0D837B5203C5604005F48E0 /* UIViewController+UIAlertController.swift */,
 				43E426372037B1CE00DEB77F /* Double+Progress.swift */,
 			);
 			path = Extensions;
@@ -190,6 +186,13 @@
 				43E425FB203791B300DEB77F /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B0D837B9203C6BBF005F48E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +338,7 @@
 				43E426382037B1CE00DEB77F /* Double+Progress.swift in Sources */,
 				43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */,
 				43E426342037B16800DEB77F /* DRPogressViewController.swift in Sources */,
+				B0D837B6203C5604005F48E0 /* UIViewController+UIAlertController.swift in Sources */,
 				43E4262A2037A04B00DEB77F /* DRDreamsTableViewController.swift in Sources */,
 				43E426362037B1AB00DEB77F /* UIColor+Palette.swift in Sources */,
 			);
