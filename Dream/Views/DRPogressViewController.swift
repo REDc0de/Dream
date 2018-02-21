@@ -62,7 +62,7 @@ class DRProgressView: UIView {
     private func setup() {
         
         // Percentage label
-        
+
         percentageLabel.font          = UIFont.systemFont(ofSize: 47)
         percentageLabel.textAlignment = .center
         percentageLabel.frame         = CGRect(x: 0, y: 0, width: 140, height: 100)
@@ -85,14 +85,14 @@ class DRProgressView: UIView {
         let startDate  = dream?.startDate  ?? Date()
 
         let deltaYear = abs((targetDate.timeIntervalSince(startDate))/60)
-        
-        timer = Timer.scheduledTimer(timeInterval: deltaYear, target: self, selector: #selector(updateDateProgress), userInfo: nil, repeats: true)
+
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateDateProgress), userInfo: nil, repeats: true)
     }
     
     @objc private func updateDateProgress() {
-        DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             self.dateShapeLayer.strokeEnd = CGFloat(self.dateProgress)
-        }
+//        }
         
         if dateProgress == 1 {
             timer?.invalidate()
