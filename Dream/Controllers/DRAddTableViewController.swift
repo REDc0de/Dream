@@ -217,8 +217,8 @@ class DRAddTableViewController: UITableViewController {
                                                 startDate     : Date(),
                                                 targetDate    : targetDate,
                                                 currentCredits: 0,
-                                                targetCredits : Double(targetAmountTextField.text!)!,
-                                                image         : UIImagePNGRepresentation(dreamImageView.image ?? UIImage())!,
+                                                targetCredits : Double(targetAmountTextField.text ?? "") ?? 0,
+                                                image         : UIImagePNGRepresentation(dreamImageView.image ?? UIImage()) ?? Data(),
                                                 info          : infoView.text ?? "")
         CoreDataManager.sharedInstance.saveContext()
         
