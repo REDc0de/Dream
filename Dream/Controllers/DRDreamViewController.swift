@@ -13,6 +13,10 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Properties
     
     public var dream: Dream?
+    
+    // MARK: - Internal Properties
+    
+    private var timer: Timer?
 
     // MARK: - Outlets    
     
@@ -53,18 +57,29 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func minusTouchDown(_ sender: DRButton) {
+        timer = Timer.scheduledTimer(timeInterval: deltaYear, target: self, selector: #selector(minus), userInfo: nil, repeats: true)
         
     }
     
     @IBAction func minusTouchUpInside(_ sender: DRButton) {
-
+        timer?.invalidate()
+        timer = nil
     }
     
     @IBAction func plusTouchDown(_ sender: DRButton) {
-        
+        timer = Timer.scheduledTimer(timeInterval: deltaYear, target: self, selector: #selector(plus), userInfo: nil, repeats: true)
     }
 
     @IBAction func plusTouchUpInside(_ sender: DRButton) {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc private func minus() {
+        
+    }
+    
+    @objc private func plus() {
         
     }
     
