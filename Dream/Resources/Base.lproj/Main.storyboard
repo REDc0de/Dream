@@ -107,9 +107,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="b8V-sj-BWx" secondAttribute="height" multiplier="1:1" id="1gx-Rk-xiX"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="sx5-Xe-3E6" appends="YES" id="JN5-aF-g2w"/>
-                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DGr-V4-nnh">
                                 <rect key="frame" x="135" y="148" width="225" height="40"/>
@@ -127,28 +124,90 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to add money" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUv-hI-KwP">
-                                <rect key="frame" x="129.66666666666666" y="569" width="115.66666666666666" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XS-2k-0Ml" customClass="DRButton" customModule="Dream" customModuleProvider="target">
+                                <rect key="frame" x="58" y="628" width="58" height="58"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="zTx-xR-45u"/>
+                                    <constraint firstAttribute="width" secondItem="5XS-2k-0Ml" secondAttribute="height" multiplier="1:1" id="SZS-PC-DPw"/>
+                                    <constraint firstAttribute="width" constant="58" id="ahy-T6-6DX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="-"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="29"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="minus:" destination="NHT-i1-DyJ" eventType="touchUpInside" id="oSb-Q7-Dg7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQ0-Fd-JjR" customClass="DRButton" customModule="Dream" customModuleProvider="target">
+                                <rect key="frame" x="260" y="628" width="58" height="58"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DQ0-Fd-JjR" secondAttribute="height" multiplier="1:1" id="QF3-nQ-dCq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="+"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="29"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="plus:" destination="NHT-i1-DyJ" eventType="touchUpInside" id="mu3-TR-f9H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbl-ZU-i0I" customClass="DRButton" customModule="Dream" customModuleProvider="target">
+                                <rect key="frame" x="38" y="711" width="300" height="52"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Dmo-Zh-yLa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="DONATE"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="26"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="add:" destination="NHT-i1-DyJ" eventType="touchUpInside" id="ohf-cL-Szz"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VwZ-A5-fT1">
+                                <rect key="frame" x="121" y="628" width="134" height="58"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="b8V-sj-BWx" firstAttribute="top" secondItem="DGr-V4-nnh" secondAttribute="bottom" constant="5" id="0XX-yO-5Xk"/>
+                            <constraint firstItem="DQ0-Fd-JjR" firstAttribute="leading" secondItem="VwZ-A5-fT1" secondAttribute="trailing" constant="5" id="26a-a3-3qe"/>
                             <constraint firstItem="rHC-gn-nOh" firstAttribute="trailing" secondItem="b8V-sj-BWx" secondAttribute="trailing" id="2Il-sF-KLl"/>
-                            <constraint firstItem="XUv-hI-KwP" firstAttribute="top" secondItem="b8V-sj-BWx" secondAttribute="bottom" constant="1" id="2gV-cA-XWE"/>
+                            <constraint firstItem="DQ0-Fd-JjR" firstAttribute="trailing" secondItem="mbl-ZU-i0I" secondAttribute="trailing" constant="-20" id="2Zf-sh-Eq1"/>
+                            <constraint firstItem="VwZ-A5-fT1" firstAttribute="top" secondItem="5XS-2k-0Ml" secondAttribute="top" id="7Ew-Rr-Nrg"/>
+                            <constraint firstItem="rHC-gn-nOh" firstAttribute="bottom" secondItem="mbl-ZU-i0I" secondAttribute="bottom" constant="15" id="8Du-qZ-vcG"/>
                             <constraint firstItem="rHC-gn-nOh" firstAttribute="trailing" secondItem="kSv-j6-fZy" secondAttribute="trailing" constant="15" id="8uq-6A-5Lv"/>
                             <constraint firstItem="b8V-sj-BWx" firstAttribute="leading" secondItem="rHC-gn-nOh" secondAttribute="leading" id="A8J-hi-ezp"/>
+                            <constraint firstItem="VwZ-A5-fT1" firstAttribute="height" secondItem="5XS-2k-0Ml" secondAttribute="height" id="BsX-v7-cyp"/>
                             <constraint firstItem="rHC-gn-nOh" firstAttribute="trailing" secondItem="DGr-V4-nnh" secondAttribute="trailing" constant="15" id="Cfj-2j-LY4"/>
-                            <constraint firstItem="XUv-hI-KwP" firstAttribute="centerX" secondItem="rHC-gn-nOh" secondAttribute="centerX" id="Fk7-oW-sgs"/>
+                            <constraint firstItem="VwZ-A5-fT1" firstAttribute="leading" secondItem="5XS-2k-0Ml" secondAttribute="trailing" constant="5" id="JFX-bq-B1R"/>
+                            <constraint firstItem="mbl-ZU-i0I" firstAttribute="top" secondItem="5XS-2k-0Ml" secondAttribute="bottom" constant="25" id="JeL-3W-XmS"/>
+                            <constraint firstItem="mbl-ZU-i0I" firstAttribute="width" secondItem="rHC-gn-nOh" secondAttribute="width" multiplier="4:5" id="KmE-xN-J1y"/>
+                            <constraint firstItem="mbl-ZU-i0I" firstAttribute="centerX" secondItem="rHC-gn-nOh" secondAttribute="centerX" id="M0D-61-24j"/>
                             <constraint firstItem="kSv-j6-fZy" firstAttribute="top" secondItem="rHC-gn-nOh" secondAttribute="top" constant="15" id="PUf-8w-gSq"/>
                             <constraint firstItem="kSv-j6-fZy" firstAttribute="width" secondItem="DGr-V4-nnh" secondAttribute="width" id="Q73-XW-Ojo"/>
                             <constraint firstItem="DGr-V4-nnh" firstAttribute="top" secondItem="kSv-j6-fZy" secondAttribute="bottom" constant="5" id="RaM-wz-9Tu"/>
+                            <constraint firstItem="DQ0-Fd-JjR" firstAttribute="width" secondItem="5XS-2k-0Ml" secondAttribute="width" id="agG-xK-IEZ"/>
+                            <constraint firstItem="5XS-2k-0Ml" firstAttribute="leading" secondItem="mbl-ZU-i0I" secondAttribute="leading" constant="20" id="awO-4d-aJX"/>
+                            <constraint firstItem="DQ0-Fd-JjR" firstAttribute="bottom" secondItem="5XS-2k-0Ml" secondAttribute="bottom" id="cZS-nb-4cj"/>
                             <constraint firstItem="kSv-j6-fZy" firstAttribute="height" secondItem="DGr-V4-nnh" secondAttribute="height" id="gma-01-Hsb"/>
                             <constraint firstItem="DGr-V4-nnh" firstAttribute="width" secondItem="j0n-zO-a5B" secondAttribute="width" multiplier="3:5" id="kXK-aS-gSB"/>
                         </constraints>
@@ -168,11 +227,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVU-1N-Lex" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="sx5-Xe-3E6">
-                    <connections>
-                        <action selector="add:" destination="NHT-i1-DyJ" id="b4Z-D4-ZD7"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2101.5999999999999" y="970.93596059113304"/>
         </scene>

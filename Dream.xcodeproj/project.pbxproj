@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43978A262040ADF8003A339E /* DRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43978A252040ADF8003A339E /* DRButton.swift */; };
 		43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F1203791B300DEB77F /* AppDelegate.swift */; };
 		43E425F7203791B300DEB77F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E425F5203791B300DEB77F /* Main.storyboard */; };
 		43E425FA203791B300DEB77F /* Dream.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F8203791B300DEB77F /* Dream.xcdatamodeld */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43978A252040ADF8003A339E /* DRButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRButton.swift; sourceTree = "<group>"; };
 		43E425EE203791B300DEB77F /* Dream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E425F1203791B300DEB77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43E425F6203791B300DEB77F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				43E426332037B16800DEB77F /* DRPogressViewController.swift */,
+				43978A252040ADF8003A339E /* DRButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */,
 				43E426342037B16800DEB77F /* DRPogressViewController.swift in Sources */,
 				B0D837B6203C5604005F48E0 /* UIViewController+UIAlertController.swift in Sources */,
+				43978A262040ADF8003A339E /* DRButton.swift in Sources */,
 				43E4262A2037A04B00DEB77F /* DRDreamsTableViewController.swift in Sources */,
 				43E426362037B1AB00DEB77F /* UIColor+Palette.swift in Sources */,
 			);
