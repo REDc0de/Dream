@@ -140,7 +140,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="minus:" destination="NHT-i1-DyJ" eventType="touchUpInside" id="oSb-Q7-Dg7"/>
+                                    <action selector="minusTouchDown:" destination="NHT-i1-DyJ" eventType="touchDown" id="MlU-pf-aKD"/>
+                                    <action selector="minusTouchUpInside:" destination="NHT-i1-DyJ" eventType="touchUpInside" id="Jj4-Nl-dxC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQ0-Fd-JjR" customClass="DRButton" customModule="Dream" customModuleProvider="target">
@@ -158,7 +159,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="plus:" destination="NHT-i1-DyJ" eventType="touchUpInside" id="mu3-TR-f9H"/>
+                                    <action selector="plusTouchDown:" destination="NHT-i1-DyJ" eventType="touchDown" id="yzF-eX-qWx"/>
+                                    <action selector="plusTouchUpInside:" destination="NHT-i1-DyJ" eventType="touchUpInside" id="pSS-Sa-XAD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbl-ZU-i0I" customClass="DRButton" customModule="Dream" customModuleProvider="target">

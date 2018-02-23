@@ -51,13 +51,24 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Actions
     
-    @IBAction func minus(_ sender: UIButton) {
     
-    }
-    
-    @IBAction func plus(_ sender: UIButton) {
+    @IBAction func minusTouchDown(_ sender: DRButton) {
         
     }
+    
+    @IBAction func minusTouchUpInside(_ sender: DRButton) {
+
+    }
+    
+    @IBAction func plusTouchDown(_ sender: DRButton) {
+        
+    }
+
+    @IBAction func plusTouchUpInside(_ sender: DRButton) {
+        
+    }
+    
+    
     
     @IBAction func add(_ sender: UIButton) {
 
