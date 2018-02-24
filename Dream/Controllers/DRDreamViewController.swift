@@ -23,6 +23,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var targetDateLabel   : UILabel!
     @IBOutlet weak var targetCreditsLabel: UILabel!
     @IBOutlet weak var progressView      : DRProgressView!
+    @IBOutlet weak var moneyTextField    : UITextField!
     
     // MARK: - Lifecicle
     
@@ -57,43 +58,49 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func minusTouchDown(_ sender: DRButton) {
-        timer = Timer.scheduledTimer(timeInterval: deltaYear, target: self, selector: #selector(minus), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(minus), userInfo: nil, repeats: true)
         
     }
     
     @IBAction func minusTouchUpInside(_ sender: DRButton) {
+        minus()
         timer?.invalidate()
         timer = nil
     }
     
     @IBAction func plusTouchDown(_ sender: DRButton) {
-        timer = Timer.scheduledTimer(timeInterval: deltaYear, target: self, selector: #selector(plus), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(plus), userInfo: nil, repeats: true)
     }
 
     @IBAction func plusTouchUpInside(_ sender: DRButton) {
+        plus()
         timer?.invalidate()
         timer = nil
     }
     
     @objc private func minus() {
-        
+        let money = Int(moneyTextField.text ?? "") ?? 0
+        moneyTextField.text = String(money-1)
     }
     
     @objc private func plus() {
-        
+        let money = Int(moneyTextField.text ?? "") ?? 0
+        moneyTextField.text = String(money+1)
     }
     
     
     
     @IBAction func add(_ sender: UIButton) {
-
-//                self.dream?.currentCredits = (self.dream?.currentCredits ?? 0.0) + (Double(userInput) ?? 0.0)
-//                CoreDataManager.sharedInstance.addTransaction(uuid: UUID().uuidString, dream: self.dream!, date: Date(), credits: Double(userInput)!)
-//                
-//                CoreDataManager.sharedInstance.saveContext()
-//                
-//                self.progressView.dream = self.dream
-     
+        
+        let userInput = Int(moneyTextField.text ?? "") ?? 0
+        
+        self.dream?.currentCredits = (self.dream?.currentCredits ?? 0.0) + (Double(userInput))
+        CoreDataManager.sharedInstance.addTransaction(uuid: UUID().uuidString, dream: self.dream!, date: Date(), credits: Double(userInput))
+        
+        CoreDataManager.sharedInstance.saveContext()
+        
+        self.progressView.dream = self.dream
+        
     }
     
     // MARK: - Navigation
