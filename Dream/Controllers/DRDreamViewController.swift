@@ -33,8 +33,6 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         navigationItem.largeTitleDisplayMode = .never
 
         self.navigationItem.title = dream?.name
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +53,6 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: Actions
-    
     
     @IBAction func minusTouchDown(_ sender: DRButton) {
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(minus), userInfo: nil, repeats: true)

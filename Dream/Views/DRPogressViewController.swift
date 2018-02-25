@@ -68,7 +68,7 @@ class DRProgressView: UIView {
         percentageLabel.center        = CGPoint(x: frame.width/2, y: frame.height/2)
 
         addSubview(percentageLabel)
-        
+
         // Expense layer
         let expenseLayerRadius = (260/375*(self.frame.width > self.frame.height ? self.frame.height : self.frame.width)-expenseLineWidth)/2
         setupCircleShapeLayer(layer: expenseShapeLayer, lineWidth: expenseLineWidth, radius: expenseLayerRadius, strokeColor: self.tintColor.cgColor, bgStrokeColor: UIColor.lightGray.withAlphaComponent(0.1).cgColor)
