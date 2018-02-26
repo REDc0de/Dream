@@ -15,16 +15,13 @@ class DRDreamsTableViewController: UITableViewController {
     fileprivate var dreams           = [Dream]()
     fileprivate var filteredDreams   = [Dream]()
     fileprivate var searchController = UISearchController(searchResultsController: nil)
-    fileprivate var uiRefreshControl = UIRefreshControl()
     
     // MARK: - Lifecicle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        uiRefreshControl.addTarget(self, action: #selector(update), for: .valueChanged)
-        refreshControl = uiRefreshControl
+        refreshControl?.addTarget(self, action: #selector(update), for: .valueChanged)
         
         self.clearsSelectionOnViewWillAppear = true
         
@@ -73,7 +70,6 @@ class DRDreamsTableViewController: UITableViewController {
         dreams         = CoreDataManager.sharedInstance.fetchDreams()
         filteredDreams = dreams
         self.tableView.reloadData()
-        refreshControl?.endRefreshing()
     }
     
     // MARK: - Table view data source
@@ -157,6 +153,17 @@ class DRDreamsTableViewController: UITableViewController {
             
             let array = isFiltering() ? filteredDreams : dreams
             viewController.dream = array[indexPath.row]
+        }
+    }
+    
+    // MARK: - Scroll view delegate
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if refreshControl?.isRefreshing == true {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+                self.refreshControl?.endRefreshing()
+            })
         }
     }
     
