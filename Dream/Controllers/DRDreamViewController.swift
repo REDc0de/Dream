@@ -78,14 +78,24 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     @objc private func minus() {
         let money = Int(moneyTextField.text ?? "") ?? 0
         moneyTextField.text = String(money-1)
+        
+        let timeInterval = (timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (timer?.timeInterval ?? 0)*19/20
+        timer?.invalidate()
+        timer = nil
+        
+        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(minus), userInfo: nil, repeats: true)
     }
     
     @objc private func plus() {
         let money = Int(moneyTextField.text ?? "") ?? 0
         moneyTextField.text = String(money+1)
+        
+        let timeInterval = (timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (timer?.timeInterval ?? 0)*19/20
+        timer?.invalidate()
+        timer = nil
+        
+        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(plus), userInfo: nil, repeats: true)
     }
-    
-    
     
     @IBAction func add(_ sender: UIButton) {
         
