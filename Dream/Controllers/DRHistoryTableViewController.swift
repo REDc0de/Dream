@@ -56,7 +56,7 @@ class DRHistoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRHistoryTableViewController", for: indexPath)
         
         cell.textLabel?.text      = String(transactions[indexPath.row].credits)
-        //cell.textLabel?.textColor = transactions[indexPath.row].credits < 0 ? .red : .green
+        cell.textLabel?.textColor = transactions[indexPath.row].credits < 0 ? .red : .green
         
         let date = transactions[indexPath.row].date
         let formatter = DateFormatter()
