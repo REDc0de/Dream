@@ -34,6 +34,16 @@ class DRDreamsTableViewController: UITableViewController {
         update()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let isNeedToPresentIntro = UserDefaults.standard.bool(forKey: "isNeedToPresentIntro")
+        
+        if !isNeedToPresentIntro {
+            performSegue(withIdentifier: "DRIntoViewController", sender: self)
+        }
+    }
+    
     // MARK: - Methods
     
     fileprivate func isFiltering() -> Bool {
