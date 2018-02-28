@@ -55,7 +55,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     // MARK: Actions
     
     @IBAction func minusTouchDown(_ sender: DRButton) {
-        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(minus), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(minus), userInfo: nil, repeats: true)
         
     }
     
@@ -66,7 +66,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func plusTouchDown(_ sender: DRButton) {
-        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(plus), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(plus), userInfo: nil, repeats: true)
     }
 
     @IBAction func plusTouchUpInside(_ sender: DRButton) {
@@ -79,7 +79,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         let money = Int(moneyTextField.text ?? "") ?? 0
         moneyTextField.text = String(money-1)
         
-        let timeInterval = (timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (timer?.timeInterval ?? 0)*19/20
+        let timeInterval = (timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (timer?.timeInterval ?? 0)*2/3
         timer?.invalidate()
         timer = nil
         
@@ -90,7 +90,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         let money = Int(moneyTextField.text ?? "") ?? 0
         moneyTextField.text = String(money+1)
         
-        let timeInterval = (timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (timer?.timeInterval ?? 0)*19/20
+        let timeInterval = (timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (timer?.timeInterval ?? 0)*2/3
         timer?.invalidate()
         timer = nil
         
