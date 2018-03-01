@@ -23,8 +23,8 @@ class DRDreamsTableViewController: UITableViewController {
         
         refreshControl?.addTarget(self, action: #selector(update), for: .valueChanged)
         
-        self.clearsSelectionOnViewWillAppear = true
-        
+        clearsSelectionOnViewWillAppear = true
+        tableView.backgroundView = DREmtyTableView()
         setupNavBar()
     }
     
@@ -85,6 +85,7 @@ class DRDreamsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
+        tableView.backgroundView?.isHidden = dreams.count != 0
         
         return 1
     }
@@ -93,7 +94,6 @@ class DRDreamsTableViewController: UITableViewController {
         
         return isFiltering() ? filteredDreams.count : dreams.count
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRDreamsTableViewControllerCell", for: indexPath)

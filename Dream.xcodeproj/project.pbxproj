@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		433F271C20473FB70050C44C /* DRIntoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433F271B20473FB70050C44C /* DRIntoViewController.swift */; };
+		436E23832048A832004B0298 /* DREmtyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436E23822048A832004B0298 /* DREmtyTableView.swift */; };
 		43978A262040ADF8003A339E /* DRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43978A252040ADF8003A339E /* DRButton.swift */; };
 		43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F1203791B300DEB77F /* AppDelegate.swift */; };
 		43E425F7203791B300DEB77F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E425F5203791B300DEB77F /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		433F271B20473FB70050C44C /* DRIntoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRIntoViewController.swift; sourceTree = "<group>"; };
+		436E23822048A832004B0298 /* DREmtyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREmtyTableView.swift; sourceTree = "<group>"; };
 		43978A252040ADF8003A339E /* DRButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRButton.swift; sourceTree = "<group>"; };
 		43E425EE203791B300DEB77F /* Dream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E425F1203791B300DEB77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				43E426332037B16800DEB77F /* DRPogressViewController.swift */,
+				436E23822048A832004B0298 /* DREmtyTableView.swift */,
 				43978A252040ADF8003A339E /* DRButton.swift */,
 			);
 			path = Views;
@@ -340,6 +343,7 @@
 				43E42628203798C100DEB77F /* CoreDataManager.swift in Sources */,
 				43E426302037A08D00DEB77F /* DRHistoryTableViewController.swift in Sources */,
 				43E426322037A0A100DEB77F /* DRDreamViewController.swift in Sources */,
+				436E23832048A832004B0298 /* DREmtyTableView.swift in Sources */,
 				43E4262C2037A05A00DEB77F /* DRProfileTableViewController.swift in Sources */,
 				43E426382037B1CE00DEB77F /* Double+Progress.swift in Sources */,
 				43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */,
