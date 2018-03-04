@@ -55,7 +55,8 @@ class DRHistoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRHistoryTableViewController", for: indexPath)
         
-        cell.textLabel?.text      = String(transactions[indexPath.row].credits)
+        let string = transactions[indexPath.row].credits > 0 ? ("+" + String(transactions[indexPath.row].credits)) : String(transactions[indexPath.row].credits)
+        cell.textLabel?.text      = string
         cell.textLabel?.textColor = transactions[indexPath.row].credits < 0 ? .thunderbird : .shamrock
         
         let date = transactions[indexPath.row].date

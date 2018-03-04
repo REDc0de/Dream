@@ -79,6 +79,9 @@ class DRDreamsTableViewController: UITableViewController {
     @objc fileprivate func update() {
         dreams         = CoreDataManager.sharedInstance.fetchDreams()
         filteredDreams = dreams
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+            self.refreshControl?.endRefreshing()
+        })
         self.tableView.reloadData()
     }
     
@@ -163,17 +166,6 @@ class DRDreamsTableViewController: UITableViewController {
             
             let array = isFiltering() ? filteredDreams : dreams
             viewController.dream = array[indexPath.row]
-        }
-    }
-    
-    // MARK: - Scroll view delegate
-    
-    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        if refreshControl?.isRefreshing == true {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
-                self.refreshControl?.endRefreshing()
-            })
         }
     }
     
