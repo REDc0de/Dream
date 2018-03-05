@@ -6,7 +6,7 @@
 //  Copyright © 2018 Bogdan Chaikovsky. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension Double {
     

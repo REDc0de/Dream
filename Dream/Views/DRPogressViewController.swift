@@ -78,11 +78,11 @@ class DRProgressView: UIView {
         setupCircleShapeLayer(layer: dateShapeLayer, lineWidth: dateLineWidth, radius: dateLayerRadius, strokeColor: self.tintColor.withAlphaComponent(0.2).cgColor, bgStrokeColor: UIColor.lightGray.withAlphaComponent(0.1).cgColor)
         
         // Timer
-        let targetDate = dream?.targetDate ?? Date()
-        let startDate  = dream?.startDate  ?? Date()
-        let deltaYear  = abs((targetDate.timeIntervalSince(startDate))/60)
+        let targetDate   = dream?.targetDate ?? Date()
+        let startDate    = dream?.startDate  ?? Date()
+        let timeInterval = abs((targetDate.timeIntervalSince(startDate))/60)
 
-        timer = Timer.scheduledTimer(timeInterval: deltaYear, target: self, selector: #selector(updateDateProgress), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(updateDateProgress), userInfo: nil, repeats: true)
     }
     
     @objc private func updateDateProgress() {

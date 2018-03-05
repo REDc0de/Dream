@@ -37,19 +37,26 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        
-        let date = dream?.targetDate ?? Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMMM yyyy"
-        let result = formatter.string(from: date)
         
         progressView.dream = dream
         
-        targetDateLabel.text = result
-        
         let credits = dream?.targetCredits ?? 0
         targetCreditsLabel.text = String(format: "%.f$", credits)
+        
+        // Timer
+        let targetDate   = dream?.targetDate ?? Date()
+        let startDate    = dream?.startDate  ?? Date()
+        let timeInterval = abs((targetDate.timeIntervalSince(startDate))/60)
+        
+        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(updateDatelabel), userInfo: nil, repeats: true)
+    }
+    
+    // MARK: Methods
+    
+    @objc func updateDatelabel() {
+        DispatchQueue.main.async {
+            self.targetDateLabel.text = Date().offset(to: self.dream?.targetDate ?? Date())
+        }
     }
     
     // MARK: Actions
