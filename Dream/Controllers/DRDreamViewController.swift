@@ -40,8 +40,8 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         
         progressView.dream = dream
         
-        let credits = dream?.targetCredits ?? 0
-        targetCreditsLabel.text = String(format: "%.f$", credits)
+        updateDatelabel()
+        updateCreditslabel()
         
         // Timer
         let targetDate   = dream?.targetDate ?? Date()
@@ -56,6 +56,13 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     @objc func updateDatelabel() {
         DispatchQueue.main.async {
             self.targetDateLabel.text = Date().offset(to: self.dream?.targetDate ?? Date())
+        }
+    }
+    
+    private func updateCreditslabel() {
+        DispatchQueue.main.async {
+            let credits = self.dream?.currentCredits ?? 0
+            self.targetCreditsLabel.text = String(format: "%.f$", credits)
         }
     }
     
@@ -115,6 +122,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         
         self.progressView.dream = self.dream
         
+        updateCreditslabel()
     }
     
     // MARK: - Navigation
