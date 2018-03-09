@@ -11,6 +11,8 @@
 		4360A858204DD06700ED558F /* Date+Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360A857204DD06700ED558F /* Date+Difference.swift */; };
 		436E23832048A832004B0298 /* DREmtyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436E23822048A832004B0298 /* DREmtyTableView.swift */; };
 		436FCA932055D01500AA91F4 /* DRDreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436FCA922055D01500AA91F4 /* DRDreamTableViewCell.swift */; };
+		436FCA952055F1F000AA91F4 /* DRInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436FCA942055F1F000AA91F4 /* DRInfoViewController.swift */; };
+		436FCA972055F30300AA91F4 /* UIView+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436FCA962055F30300AA91F4 /* UIView+CALayer.swift */; };
 		43978A262040ADF8003A339E /* DRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43978A252040ADF8003A339E /* DRButton.swift */; };
 		43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F1203791B300DEB77F /* AppDelegate.swift */; };
 		43E425F7203791B300DEB77F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E425F5203791B300DEB77F /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		4360A857204DD06700ED558F /* Date+Difference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Difference.swift"; sourceTree = "<group>"; };
 		436E23822048A832004B0298 /* DREmtyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREmtyTableView.swift; sourceTree = "<group>"; };
 		436FCA922055D01500AA91F4 /* DRDreamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRDreamTableViewCell.swift; sourceTree = "<group>"; };
+		436FCA942055F1F000AA91F4 /* DRInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRInfoViewController.swift; sourceTree = "<group>"; };
+		436FCA962055F30300AA91F4 /* UIView+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CALayer.swift"; sourceTree = "<group>"; };
 		43978A252040ADF8003A339E /* DRButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRButton.swift; sourceTree = "<group>"; };
 		43E425EE203791B300DEB77F /* Dream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E425F1203791B300DEB77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				43E4262D2037A07700DEB77F /* DRAddTableViewController.swift */,
 				43E4262F2037A08D00DEB77F /* DRHistoryTableViewController.swift */,
 				43E426312037A0A100DEB77F /* DRDreamViewController.swift */,
+				436FCA942055F1F000AA91F4 /* DRInfoViewController.swift */,
 				433F271B20473FB70050C44C /* DRIntoViewController.swift */,
 			);
 			path = Controllers;
@@ -185,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				43E426352037B1AB00DEB77F /* UIColor+Palette.swift */,
+				436FCA962055F30300AA91F4 /* UIView+CALayer.swift */,
 				B0D837B5203C5604005F48E0 /* UIViewController+UIAlertController.swift */,
 				43E426372037B1CE00DEB77F /* Double+Progress.swift */,
 				4360A857204DD06700ED558F /* Date+Difference.swift */,
@@ -346,11 +352,13 @@
 			files = (
 				43E425FA203791B300DEB77F /* Dream.xcdatamodeld in Sources */,
 				43E4262E2037A07700DEB77F /* DRAddTableViewController.swift in Sources */,
+				436FCA952055F1F000AA91F4 /* DRInfoViewController.swift in Sources */,
 				43E42628203798C100DEB77F /* CoreDataManager.swift in Sources */,
 				43E426302037A08D00DEB77F /* DRHistoryTableViewController.swift in Sources */,
 				4360A858204DD06700ED558F /* Date+Difference.swift in Sources */,
 				43E426322037A0A100DEB77F /* DRDreamViewController.swift in Sources */,
 				436E23832048A832004B0298 /* DREmtyTableView.swift in Sources */,
+				436FCA972055F30300AA91F4 /* UIView+CALayer.swift in Sources */,
 				43E4262C2037A05A00DEB77F /* DRProfileTableViewController.swift in Sources */,
 				43E426382037B1CE00DEB77F /* Double+Progress.swift in Sources */,
 				43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */,
