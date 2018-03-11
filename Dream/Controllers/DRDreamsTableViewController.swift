@@ -102,7 +102,14 @@ class DRDreamsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRDreamsTableViewControllerCell", for: indexPath)
         
         let dreamsArray = isFiltering() ? filteredDreams : dreams
-        cell.textLabel?.text = dreamsArray[indexPath.row].name
+        
+        if let cell = cell as? DRDreamTableViewCell {
+            cell.nameLabel.text = dreamsArray[indexPath.row].name
+            cell.creditsLabel.text = String(dreamsArray[indexPath.row].currentCredits) + "/" + String(dreamsArray[indexPath.row].targetCredits)
+            cell.dateLabel.text = Date().offset(to: dreamsArray[indexPath.row].targetDate ?? Date())
+            cell.backgroundImageView.image = UIImage(data: dreamsArray[indexPath.row].image ?? Data())
+        }
+
         
         return cell
     }
