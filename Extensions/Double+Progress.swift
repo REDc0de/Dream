@@ -17,7 +17,7 @@ extension Double {
         
         let progress = Double((Date().timeIntervalSinceNow - startDate.timeIntervalSinceNow) / (targetDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow))
 
-        return progress.isNaN || progress < 0 ? 0 : progress > 1 ? 1 : progress
+        return progress.isNaN || progress < 0 ? 0 : (progress > 1 ? 1 : progress)
     }
     
     public func progress(between number: Double?, and targetNumber: Double?) -> Double {

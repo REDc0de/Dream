@@ -15,7 +15,7 @@ class DRIntoViewController: UIViewController {
 
     }
 
-    @IBAction func done(_ sender: DRButton) {
+    @IBAction func done(_ sender: UIButton) {
         UserDefaults.standard.set(true, forKey: "isNeedToPresentIntro")
         dismiss(animated: true, completion: nil)
     }

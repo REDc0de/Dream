@@ -68,22 +68,22 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Actions
     
-    @IBAction func minusTouchDown(_ sender: DRButton) {
+    @IBAction func minusTouchDown(_ sender: UIButton) {
         timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(minus), userInfo: nil, repeats: true)
         
     }
     
-    @IBAction func minusTouchUpInside(_ sender: DRButton) {
+    @IBAction func minusTouchUpInside(_ sender: UIButton) {
         minus()
         timer?.invalidate()
         timer = nil
     }
     
-    @IBAction func plusTouchDown(_ sender: DRButton) {
+    @IBAction func plusTouchDown(_ sender: UIButton) {
         timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(plus), userInfo: nil, repeats: true)
     }
 
-    @IBAction func plusTouchUpInside(_ sender: DRButton) {
+    @IBAction func plusTouchUpInside(_ sender: UIButton) {
         plus()
         timer?.invalidate()
         timer = nil
