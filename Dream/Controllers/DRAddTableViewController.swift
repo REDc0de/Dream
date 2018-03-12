@@ -18,6 +18,10 @@ class DRAddTableViewController: UITableViewController {
     
     // MARK: - Properties
     
+    public var dream: Dream?
+    
+    // MARK: - Internal Properties
+    
     private var isDatePickerVisible: Bool = false
     
     private var currentAmount: Int?
@@ -52,7 +56,12 @@ class DRAddTableViewController: UITableViewController {
         
         datePicker.minimumDate = Date()
         
-        targetDate = Date()
+        targetDate = dream?.targetDate ?? Date()
+        nameTextField.text = dream?.name
+        infoView.text = dream?.info
+        targetAmountTextField.text = String(dream?.targetCredits ?? 0)
+        
+        print("Dream:", dream)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.

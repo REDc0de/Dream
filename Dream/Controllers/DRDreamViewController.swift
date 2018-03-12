@@ -131,12 +131,17 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
- 
+
+        if let controller = segue.destination as? DRHistoryTableViewController {
+            controller.dream = dream
+        }
         
-//        //        if segue.destination == DRHistoryTableViewController {
-        let controller = segue.destination as? DRHistoryTableViewController
-        controller?.dream = dream
-        //        }
+        let destinationNavigationController = segue.destination as? UINavigationController
+        let targetController = destinationNavigationController?.topViewController
+        
+        if let controller = targetController as? DRAddTableViewController {
+            controller.dream = dream
+        }
     }
 
 }

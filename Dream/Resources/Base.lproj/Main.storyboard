@@ -7,6 +7,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
         <scene sceneID="kTg-zs-S8n">
             <objects>
                 <tableViewController id="Aad-pB-OBk" customClass="DRDreamsTableViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cDk-7v-FKk">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cDk-7v-FKk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,9 +36,6 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q81-Ko-iha">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="87.666666666666671"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="88" id="b9v-Yq-vEZ"/>
-                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgC-bm-dAk">
                                             <rect key="frame" x="15" y="5" width="345" height="30"/>
@@ -63,16 +61,16 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="rqN-pS-fkM" firstAttribute="width" secondItem="JAX-JJ-cGS" secondAttribute="width" id="0Ai-ca-esj"/>
-                                        <constraint firstItem="q81-Ko-iha" firstAttribute="top" secondItem="VLR-tI-dx1" secondAttribute="top" id="0aU-vr-yn7"/>
                                         <constraint firstItem="JAX-JJ-cGS" firstAttribute="top" secondItem="EgC-bm-dAk" secondAttribute="bottom" constant="5" id="204-we-sCe"/>
                                         <constraint firstItem="EgC-bm-dAk" firstAttribute="leading" secondItem="VLR-tI-dx1" secondAttribute="leading" constant="15" id="3ec-F5-XTe"/>
                                         <constraint firstAttribute="bottom" secondItem="rqN-pS-fkM" secondAttribute="bottom" constant="5" id="6tK-yg-nrm"/>
-                                        <constraint firstAttribute="bottom" secondItem="q81-Ko-iha" secondAttribute="bottom" id="BAj-3R-T97"/>
                                         <constraint firstItem="rqN-pS-fkM" firstAttribute="top" secondItem="JAX-JJ-cGS" secondAttribute="bottom" constant="5" id="Flj-dM-z51"/>
-                                        <constraint firstItem="q81-Ko-iha" firstAttribute="leading" secondItem="VLR-tI-dx1" secondAttribute="leading" id="JCI-IV-sJ0"/>
                                         <constraint firstAttribute="trailing" secondItem="EgC-bm-dAk" secondAttribute="trailing" constant="15" id="O9E-PX-TEG"/>
+                                        <constraint firstItem="q81-Ko-iha" firstAttribute="leading" secondItem="VLR-tI-dx1" secondAttribute="leading" id="OVg-wG-OBb"/>
                                         <constraint firstItem="EgC-bm-dAk" firstAttribute="top" secondItem="VLR-tI-dx1" secondAttribute="top" constant="5" id="SS4-KU-lDY"/>
-                                        <constraint firstAttribute="trailing" secondItem="q81-Ko-iha" secondAttribute="trailing" id="bGV-Qy-AI3"/>
+                                        <constraint firstItem="q81-Ko-iha" firstAttribute="top" secondItem="VLR-tI-dx1" secondAttribute="top" id="TU6-PX-7uP"/>
+                                        <constraint firstAttribute="trailing" secondItem="q81-Ko-iha" secondAttribute="trailing" id="YC2-Bx-RXA"/>
+                                        <constraint firstAttribute="bottom" secondItem="q81-Ko-iha" secondAttribute="bottom" id="Zfm-qn-wxT"/>
                                         <constraint firstItem="rqN-pS-fkM" firstAttribute="height" secondItem="JAX-JJ-cGS" secondAttribute="height" id="crf-Nr-j6G"/>
                                         <constraint firstItem="JAX-JJ-cGS" firstAttribute="width" secondItem="EgC-bm-dAk" secondAttribute="width" multiplier="1:2" id="crv-BD-zfe"/>
                                         <constraint firstItem="JAX-JJ-cGS" firstAttribute="trailing" secondItem="EgC-bm-dAk" secondAttribute="trailing" id="fHS-vg-cK3"/>
@@ -339,11 +337,18 @@
                         <viewLayoutGuide key="safeArea" id="rHC-gn-nOh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dream" id="Kgq-cU-tCL">
-                        <barButtonItem key="rightBarButtonItem" title="Hisory" id="jPg-xk-ivv">
-                            <connections>
-                                <segue destination="18c-0q-seu" kind="show" id="dHv-7Q-5hU"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Hisory" id="jPg-xk-ivv">
+                                <connections>
+                                    <segue destination="18c-0q-seu" kind="show" id="dHv-7Q-5hU"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="dfD-ls-H5k">
+                                <connections>
+                                    <segue destination="rRD-pp-ZVF" kind="presentation" modalTransitionStyle="flipHorizontal" id="rHL-7s-WdD"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="moneyTextField" destination="VwZ-A5-fT1" id="neT-KB-ylB"/>
@@ -682,6 +687,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="rHL-7s-WdD"/>
         <segue reference="0ni-Pf-uLA"/>
     </inferredMetricsTieBreakers>
 </document>

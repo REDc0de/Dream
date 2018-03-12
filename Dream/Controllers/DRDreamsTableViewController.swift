@@ -167,7 +167,7 @@ class DRDreamsTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cell = sender as? UITableViewCell {
+        if let cell = sender as? DRDreamTableViewCell {
             guard let indexPath      = tableView.indexPath(for: cell)              else { return }
             guard let viewController = segue.destination as? DRDreamViewController else { return }
             
