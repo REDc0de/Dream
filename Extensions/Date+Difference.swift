@@ -39,13 +39,13 @@ extension Date {
     }
     /// Returns the a custom time interval description from another date
     func offset(to date: Date) -> String {
-        if years(from: date)   > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfYears",   comment: ""), years(from: date))   }
-        if months(from: date)  > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfMonths",  comment: ""), months(from: date))  }
-        if weeks(from: date)   > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfWeeks",   comment: ""), weeks(from: date))   }
-        if days(from: date)    > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfDays",    comment: ""), days(from: date))    }
-        if hours(from: date)   > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfHours",   comment: ""), hours(from: date))   }
-        if minutes(from: date) > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfMinutes", comment: ""), minutes(from: date)) }
-        if seconds(from: date) > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfSeconds", comment: ""), seconds(from: date)) }
-        return "0s"
+        if years(from: date)   > 0 { return String.localizedStringWithFormat(NSLocalizedString("%ld years",   comment: ""), years(from: date))   }
+        if months(from: date)  > 0 { return String.localizedStringWithFormat(NSLocalizedString("%ld months",  comment: ""), months(from: date))  }
+        if weeks(from: date)   > 0 { return String.localizedStringWithFormat(NSLocalizedString("%ld weeks",   comment: ""), weeks(from: date))   }
+        if days(from: date)    > 0 { return String.localizedStringWithFormat(NSLocalizedString("%ld days",    comment: ""), days(from: date))    }
+        if hours(from: date)   > 0 { return String.localizedStringWithFormat(NSLocalizedString("%ld hours",   comment: ""), hours(from: date))   }
+        if minutes(from: date) > 0 { return String.localizedStringWithFormat(NSLocalizedString("%ld minutes", comment: ""), minutes(from: date)) }
+        if seconds(from: date) > 0 { return String.localizedStringWithFormat(NSLocalizedString("%ld seconds", comment: ""), seconds(from: date)) }
+        return "No time left"
     }
 }
