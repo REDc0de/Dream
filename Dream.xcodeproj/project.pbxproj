@@ -13,6 +13,7 @@
 		436FCA932055D01500AA91F4 /* DRDreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436FCA922055D01500AA91F4 /* DRDreamTableViewCell.swift */; };
 		436FCA952055F1F000AA91F4 /* DRInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436FCA942055F1F000AA91F4 /* DRInfoViewController.swift */; };
 		436FCA972055F30300AA91F4 /* UIView+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436FCA962055F30300AA91F4 /* UIView+CALayer.swift */; };
+		43705DB320584C7D00C213CD /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 43705DB220584C7D00C213CD /* Localizable.stringsdict */; };
 		43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F1203791B300DEB77F /* AppDelegate.swift */; };
 		43E425F7203791B300DEB77F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E425F5203791B300DEB77F /* Main.storyboard */; };
 		43E425FA203791B300DEB77F /* Dream.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F8203791B300DEB77F /* Dream.xcdatamodeld */; };
@@ -56,6 +57,7 @@
 		436FCA922055D01500AA91F4 /* DRDreamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRDreamTableViewCell.swift; sourceTree = "<group>"; };
 		436FCA942055F1F000AA91F4 /* DRInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRInfoViewController.swift; sourceTree = "<group>"; };
 		436FCA962055F30300AA91F4 /* UIView+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CALayer.swift"; sourceTree = "<group>"; };
+		43705DB220584C7D00C213CD /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		43E425EE203791B300DEB77F /* Dream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E425F1203791B300DEB77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43E425F6203791B300DEB77F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				43E425F1203791B300DEB77F /* AppDelegate.swift */,
 				43E42627203798C100DEB77F /* CoreDataManager.swift */,
 				43E42600203791B300DEB77F /* Info.plist */,
+				43705DB220584C7D00C213CD /* Localizable.stringsdict */,
 			);
 			path = Dream;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E425FF203791B300DEB77F /* LaunchScreen.storyboard in Resources */,
+				43705DB320584C7D00C213CD /* Localizable.stringsdict in Resources */,
 				43E425FC203791B300DEB77F /* Assets.xcassets in Resources */,
 				43E425F7203791B300DEB77F /* Main.storyboard in Resources */,
 			);

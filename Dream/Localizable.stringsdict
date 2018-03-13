@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>numberOfSeconds</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@VARIABLE@</string>
+		<key>Variable</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>s</string>
+			<key>zero</key>
+			<string>%s seconds</string>
+			<key>one</key>
+			<string>%s second</string>
+			<key>two</key>
+			<string>%s seconds</string>
+			<key>few</key>
+			<string>%s seconds</string>
+			<key>many</key>
+			<string>%s seconds</string>
+			<key>other</key>
+			<string>%s seconds</string>
+		</dict>
+	</dict>
+    <key>numberOfMinutes</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@VARIABLE@</string>
+        <key>Variable</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>m</string>
+            <key>zero</key>
+            <string>%m minutes</string>
+            <key>one</key>
+            <string>%m minute</string>
+            <key>two</key>
+            <string>%m minutes</string>
+            <key>few</key>
+            <string>%m minutes</string>
+            <key>many</key>
+            <string>%m minutes</string>
+            <key>other</key>
+            <string>%m minutes</string>
+        </dict>
+    </dict>
+    <key>numberOfHours</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@VARIABLE@</string>
+        <key>Variable</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>h</string>
+            <key>zero</key>
+            <string>%h hours</string>
+            <key>one</key>
+            <string>%h hour</string>
+            <key>two</key>
+            <string>%h hours</string>
+            <key>few</key>
+            <string>%h hours</string>
+            <key>many</key>
+            <string>%h hours</string>
+            <key>other</key>
+            <string>%h hours</string>
+        </dict>
+    </dict>
+    <key>numberOfDays</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@VARIABLE@</string>
+        <key>Variable</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>d</string>
+            <key>zero</key>
+            <string>%d days</string>
+            <key>one</key>
+            <string>%d day</string>
+            <key>two</key>
+            <string>%d days</string>
+            <key>few</key>
+            <string>%d days</string>
+            <key>many</key>
+            <string>%d days</string>
+            <key>other</key>
+            <string>%d days</string>
+        </dict>
+    </dict>
+    <key>numberOfWeeks</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@VARIABLE@</string>
+        <key>Variable</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>w</string>
+            <key>zero</key>
+            <string>%w weeks</string>
+            <key>one</key>
+            <string>%w week</string>
+            <key>two</key>
+            <string>%w weeks</string>
+            <key>few</key>
+            <string>%w weeks</string>
+            <key>many</key>
+            <string>%w weeks</string>
+            <key>other</key>
+            <string>%w weeks</string>
+        </dict>
+    </dict>
+    <key>numberOfMonths</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@VARIABLE@</string>
+        <key>Variable</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>m</string>
+            <key>zero</key>
+            <string>%m months</string>
+            <key>one</key>
+            <string>%m month</string>
+            <key>two</key>
+            <string>%m months</string>
+            <key>few</key>
+            <string>%m months</string>
+            <key>many</key>
+            <string>%m months</string>
+            <key>other</key>
+            <string>%m months</string>
+        </dict>
+    </dict>
+    <key>numberOfYears</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@VARIABLE@</string>
+        <key>Variable</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>y</string>
+            <key>zero</key>
+            <string>%y years</string>
+            <key>one</key>
+            <string>%y year</string>
+            <key>two</key>
+            <string>%y years</string>
+            <key>few</key>
+            <string>%y years</string>
+            <key>many</key>
+            <string>%y years</string>
+            <key>other</key>
+            <string>%y years</string>
+        </dict>
+    </dict>
+</dict>
+</plist>

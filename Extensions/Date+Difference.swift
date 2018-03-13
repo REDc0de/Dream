@@ -39,13 +39,13 @@ extension Date {
     }
     /// Returns the a custom time interval description from another date
     func offset(to date: Date) -> String {
-        if years(from: date)   > 0 { return "\(years(from: date))y"   }
-        if months(from: date)  > 0 { return "\(months(from: date))M"  }
-        if weeks(from: date)   > 0 { return "\(weeks(from: date))w"   }
-        if days(from: date)    > 0 { return "\(days(from: date))d"    }
-        if hours(from: date)   > 0 { return "\(hours(from: date))h"   }
-        if minutes(from: date) > 0 { return "\(minutes(from: date))m" }
-        if seconds(from: date) > 0 { return "\(seconds(from: date))s" }
+        if years(from: date)   > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfYears",   comment: ""), years(from: date))   }
+        if months(from: date)  > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfMonths",  comment: ""), months(from: date))  }
+        if weeks(from: date)   > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfWeeks",   comment: ""), weeks(from: date))   }
+        if days(from: date)    > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfDays",    comment: ""), days(from: date))    }
+        if hours(from: date)   > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfHours",   comment: ""), hours(from: date))   }
+        if minutes(from: date) > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfMinutes", comment: ""), minutes(from: date)) }
+        if seconds(from: date) > 0 { return String.localizedStringWithFormat(NSLocalizedString("numberOfSeconds", comment: ""), seconds(from: date)) }
         return "0s"
     }
 }
