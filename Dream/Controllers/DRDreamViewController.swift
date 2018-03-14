@@ -17,13 +17,28 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Internal Properties
     
     private var timer: Timer?
+    private var progressTimer: Timer?
 
     // MARK: - Outlets    
     
-    @IBOutlet weak var targetDateLabel   : UILabel!
-    @IBOutlet weak var targetCreditsLabel: UILabel!
-    @IBOutlet weak var progressView      : DRProgressView!
-    @IBOutlet weak var moneyTextField    : UITextField!
+    @IBOutlet weak var targetDateLabel    : UILabel!
+    @IBOutlet weak var targetCreditsLabel : UILabel!
+    @IBOutlet weak var percentageLabel    : UILabel!
+    @IBOutlet weak var timeProgressView   : DRCircleProgressView!
+    @IBOutlet weak var creditsProgressView: DRCircleProgressView!
+    @IBOutlet weak var moneyTextField     : UITextField!
+    
+    private var creditsProgress: Double {
+        get{
+            return Double().progress(between: dream?.currentCredits, and: dream?.targetCredits)
+        }
+    }
+    
+    private var dateProgress: Double {
+        get{
+            return Double().progress(between: dream?.startDate, and: dream?.targetDate)
+        }
+    }
     
     // MARK: - Lifecicle
     
@@ -38,7 +53,8 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        progressView.dream = dream
+        self.timeProgressView.value = Float(self.dateProgress)
+        updateCreditsProgress()
         
         updateDatelabel()
         updateCreditslabel()
@@ -46,17 +62,39 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         // Timer
         let targetDate   = dream?.targetDate ?? Date()
         let startDate    = dream?.startDate  ?? Date()
-        let timeInterval = abs((targetDate.timeIntervalSince(startDate))/60)
+        var timeInterval = abs((targetDate.timeIntervalSince(startDate))/60)
+        timeInterval = timeInterval < 0.001 ? 0.001 : timeInterval
         
         timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(updateDatelabel), userInfo: nil, repeats: true)
+        
+        
+        // Date Timer
+        
+        progressTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(updateDateProgress), userInfo: nil, repeats: true)
     }
     
     // MARK: Methods
+    
+    @objc private func updateDateProgress() {
+        DispatchQueue.main.async {
+            self.timeProgressView.value = Float(self.dateProgress)
+        }
+        
+        if dateProgress == 1 {
+            progressTimer?.invalidate()
+            return
+        }
+    }
     
     @objc func updateDatelabel() {
         DispatchQueue.main.async {
             self.targetDateLabel.text = Date().offset(to: self.dream?.targetDate ?? Date())
         }
+    }
+    
+    private func updateCreditsProgress() {
+        self.creditsProgressView.value = Float(self.creditsProgress)
+        percentageLabel  .text      = " \(Int(self.creditsProgress * 100))%"
     }
     
     private func updateCreditslabel() {
@@ -120,7 +158,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         
         CoreDataManager.sharedInstance.saveContext()
         
-        self.progressView.dream = self.dream
+        updateCreditsProgress()
         
         updateCreditslabel()
     }

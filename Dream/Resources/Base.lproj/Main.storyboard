@@ -221,9 +221,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-sj-BWx" customClass="DRProgressView" customModule="Dream" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="193" width="375" height="415"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-sj-BWx" customClass="DRCircleProgressView" customModule="Dream" customModuleProvider="target">
+                                <rect key="frame" x="18.666666666666657" y="193" width="337.66666666666674" height="415"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-Rq-xrc" customClass="DRCircleProgressView" customModule="Dream" customModuleProvider="target">
+                                        <rect key="frame" x="41.666666666666671" y="80.333333333333329" width="253.33333333333331" height="253.33333333333337"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKm-wk-pPE">
+                                                <rect key="frame" x="94" y="98.666666666666686" width="66" height="57"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="aKm-wk-pPE" firstAttribute="centerX" secondItem="a5J-Rq-xrc" secondAttribute="centerX" id="Cvr-7d-VuO"/>
+                                            <constraint firstAttribute="width" secondItem="a5J-Rq-xrc" secondAttribute="height" multiplier="1:1" id="JPu-1o-Uc9"/>
+                                            <constraint firstItem="aKm-wk-pPE" firstAttribute="centerY" secondItem="a5J-Rq-xrc" secondAttribute="centerY" id="tZL-F5-09j"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                <real key="value" value="36"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundLineColor">
+                                                <color key="value" white="0.66666666666666663" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="a5J-Rq-xrc" firstAttribute="width" secondItem="b8V-sj-BWx" secondAttribute="width" multiplier="3:4" id="dOe-xE-e1m"/>
+                                    <constraint firstItem="a5J-Rq-xrc" firstAttribute="centerY" secondItem="b8V-sj-BWx" secondAttribute="centerY" id="ga5-US-Z2L"/>
+                                    <constraint firstItem="a5J-Rq-xrc" firstAttribute="centerX" secondItem="b8V-sj-BWx" secondAttribute="centerX" id="tsh-sP-7ko"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundLineColor">
+                                        <color key="value" white="0.66666666666666663" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DGr-V4-nnh">
                                 <rect key="frame" x="135" y="148" width="225" height="40"/>
@@ -241,7 +287,7 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XS-2k-0Ml" customClass="DRButton" customModule="Dream" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XS-2k-0Ml">
                                 <rect key="frame" x="58" y="628" width="58" height="58"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -261,7 +307,7 @@
                                     <action selector="minusTouchUpInside:" destination="NHT-i1-DyJ" eventType="touchUpInside" id="Jj4-Nl-dxC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQ0-Fd-JjR" customClass="DRButton" customModule="Dream" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQ0-Fd-JjR">
                                 <rect key="frame" x="260" y="628" width="58" height="58"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -312,13 +358,13 @@
                         <constraints>
                             <constraint firstItem="b8V-sj-BWx" firstAttribute="top" secondItem="DGr-V4-nnh" secondAttribute="bottom" constant="5" id="0XX-yO-5Xk"/>
                             <constraint firstItem="DQ0-Fd-JjR" firstAttribute="leading" secondItem="VwZ-A5-fT1" secondAttribute="trailing" constant="5" id="26a-a3-3qe"/>
-                            <constraint firstItem="rHC-gn-nOh" firstAttribute="trailing" secondItem="b8V-sj-BWx" secondAttribute="trailing" id="2Il-sF-KLl"/>
                             <constraint firstItem="DQ0-Fd-JjR" firstAttribute="trailing" secondItem="mbl-ZU-i0I" secondAttribute="trailing" constant="-20" id="2Zf-sh-Eq1"/>
+                            <constraint firstItem="b8V-sj-BWx" firstAttribute="width" secondItem="j0n-zO-a5B" secondAttribute="width" multiplier="9:10" id="5n9-XV-szE"/>
                             <constraint firstItem="VwZ-A5-fT1" firstAttribute="top" secondItem="5XS-2k-0Ml" secondAttribute="top" id="7Ew-Rr-Nrg"/>
                             <constraint firstItem="rHC-gn-nOh" firstAttribute="bottom" secondItem="mbl-ZU-i0I" secondAttribute="bottom" constant="15" id="8Du-qZ-vcG"/>
                             <constraint firstItem="rHC-gn-nOh" firstAttribute="trailing" secondItem="kSv-j6-fZy" secondAttribute="trailing" constant="15" id="8uq-6A-5Lv"/>
-                            <constraint firstItem="b8V-sj-BWx" firstAttribute="leading" secondItem="rHC-gn-nOh" secondAttribute="leading" id="A8J-hi-ezp"/>
                             <constraint firstItem="VwZ-A5-fT1" firstAttribute="height" secondItem="5XS-2k-0Ml" secondAttribute="height" id="BsX-v7-cyp"/>
+                            <constraint firstItem="b8V-sj-BWx" firstAttribute="centerX" secondItem="rHC-gn-nOh" secondAttribute="centerX" id="CAm-cs-xKl"/>
                             <constraint firstItem="rHC-gn-nOh" firstAttribute="trailing" secondItem="DGr-V4-nnh" secondAttribute="trailing" constant="15" id="Cfj-2j-LY4"/>
                             <constraint firstItem="VwZ-A5-fT1" firstAttribute="leading" secondItem="5XS-2k-0Ml" secondAttribute="trailing" constant="5" id="JFX-bq-B1R"/>
                             <constraint firstItem="mbl-ZU-i0I" firstAttribute="top" secondItem="5XS-2k-0Ml" secondAttribute="bottom" constant="25" id="JeL-3W-XmS"/>
@@ -351,10 +397,12 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="creditsProgressView" destination="a5J-Rq-xrc" id="I2S-ut-Ygy"/>
                         <outlet property="moneyTextField" destination="VwZ-A5-fT1" id="neT-KB-ylB"/>
-                        <outlet property="progressView" destination="b8V-sj-BWx" id="lTe-p3-Xiu"/>
+                        <outlet property="percentageLabel" destination="aKm-wk-pPE" id="bJo-c6-Mym"/>
                         <outlet property="targetCreditsLabel" destination="DGr-V4-nnh" id="Agu-u8-Q00"/>
                         <outlet property="targetDateLabel" destination="kSv-j6-fZy" id="jxL-fy-zlX"/>
+                        <outlet property="timeProgressView" destination="b8V-sj-BWx" id="3cf-ZV-YTl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVU-1N-Lex" userLabel="First Responder" sceneMemberID="firstResponder"/>
