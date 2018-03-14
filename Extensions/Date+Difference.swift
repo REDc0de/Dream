@@ -46,6 +46,6 @@ extension Date {
         if hours(from: date)   > 0 { return String.localizedStringWithFormat(NSLocalizedString("%ld hours",   comment: ""), hours(from: date))   }
         if minutes(from: date) > 0 { return String.localizedStringWithFormat(NSLocalizedString("%ld minutes", comment: ""), minutes(from: date)) }
         if seconds(from: date) > 0 { return String.localizedStringWithFormat(NSLocalizedString("%ld seconds", comment: ""), seconds(from: date)) }
-        return "No time left"
+        return "Сompleted"
     }
 }

@@ -17,7 +17,6 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Internal Properties
     
     private var timer: Timer?
-    private var progressTimer: Timer?
 
     // MARK: - Outlets    
     
@@ -56,21 +55,16 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         self.timeProgressView.value = Float(self.dateProgress)
         updateCreditsProgress()
         
-        updateDatelabel()
+        updateDateProgress()
         updateCreditslabel()
         
         // Timer
         let targetDate   = dream?.targetDate ?? Date()
         let startDate    = dream?.startDate  ?? Date()
-        var timeInterval = abs((targetDate.timeIntervalSince(startDate))/60)
-        timeInterval = timeInterval < 0.001 ? 0.001 : timeInterval
-        
-        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(updateDatelabel), userInfo: nil, repeats: true)
-        
-        
-        // Date Timer
-        
-        progressTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(updateDateProgress), userInfo: nil, repeats: true)
+        var timeInterval = abs((targetDate.timeIntervalSince(startDate))/60)/100
+        timeInterval = timeInterval < 0.00001 ? 0.00001 : timeInterval
+
+        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(updateDateProgress), userInfo: nil, repeats: true)
     }
     
     // MARK: Methods
@@ -78,17 +72,12 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     @objc private func updateDateProgress() {
         DispatchQueue.main.async {
             self.timeProgressView.value = Float(self.dateProgress)
+            self.targetDateLabel.text = Date().offset(to: self.dream?.targetDate ?? Date())
         }
         
         if dateProgress == 1 {
-            progressTimer?.invalidate()
+            timer?.invalidate()
             return
-        }
-    }
-    
-    @objc func updateDatelabel() {
-        DispatchQueue.main.async {
-            self.targetDateLabel.text = Date().offset(to: self.dream?.targetDate ?? Date())
         }
     }
     
