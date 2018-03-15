@@ -17,73 +17,84 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Internal Properties
     
     private var timer: Timer?
-
-    // MARK: - Outlets    
-    
-    @IBOutlet weak var targetDateLabel    : UILabel!
-    @IBOutlet weak var targetCreditsLabel : UILabel!
-    @IBOutlet weak var percentageLabel    : UILabel!
-    @IBOutlet weak var timeProgressView   : DRCircleProgressView!
-    @IBOutlet weak var creditsProgressView: DRCircleProgressView!
-    @IBOutlet weak var moneyTextField     : UITextField!
     
     private var creditsProgress: Double {
         get{
-            return Double().progress(between: dream?.currentCredits, and: dream?.targetCredits)
+            return Double().progress(between: self.dream?.currentCredits, and: self.dream?.targetCredits)
         }
     }
     
     private var dateProgress: Double {
         get{
-            return Double().progress(between: dream?.startDate, and: dream?.targetDate)
+            return Double().progress(between: self.dream?.startDate, and: self.dream?.targetDate)
         }
     }
+
+    // MARK: - Outlets    
+    
+    @IBOutlet weak var targetDateLabel: UILabel!
+    @IBOutlet weak var targetCreditsLabel: UILabel!
+    @IBOutlet weak var percentageLabel: UILabel!
+    @IBOutlet weak var timerProgressView: DRTimerCircleProgressView!
+    @IBOutlet weak var creditsProgressView: UICircleProgressView!
+    @IBOutlet weak var moneyTextField: UITextField!
     
     // MARK: - Lifecicle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.largeTitleDisplayMode = .never
-
-        self.navigationItem.title = dream?.name
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.title = self.dream?.name
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.timeProgressView.value = Float(self.dateProgress)
-        updateCreditsProgress()
+        self.updateCreditsProgress()
         
-        updateDateProgress()
-        updateCreditslabel()
-        
-        // Timer
-        let targetDate   = dream?.targetDate ?? Date()
-        let startDate    = dream?.startDate  ?? Date()
-        var timeInterval = abs((targetDate.timeIntervalSince(startDate))/60)/100
-        timeInterval = timeInterval < 0.00001 ? 0.00001 : timeInterval
+        self.updateDateProgress()
+        self.updateCreditslabel()
 
-        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(updateDateProgress), userInfo: nil, repeats: true)
+        
+        guard let startDate = self.dream?.startDate, let targetDate = self.dream?.targetDate else {
+                        return
+                    }
+        
+        self.timerProgressView.startDate  = startDate
+        self.timerProgressView.targetDate = targetDate
+        
+//        self.setTimer()
     }
     
     // MARK: Methods
+//
+//    private func setTimer() {
+//
+//        guard let startDate = self.dream?.startDate, let targetDate = self.dream?.targetDate else {
+//            return
+//        }
+//
+//        let timeInterval = abs(targetDate.timeIntervalSince(startDate))/360 // time interval for 1 degrees moving
+//
+//        self.timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(self.updateDateProgress), userInfo: nil, repeats: true)
+//    }
     
     @objc private func updateDateProgress() {
         DispatchQueue.main.async {
-            self.timeProgressView.value = Float(self.dateProgress)
+            self.timerProgressView.value = Float(self.dateProgress)
             self.targetDateLabel.text = Date().offset(to: self.dream?.targetDate ?? Date())
         }
         
-        if dateProgress == 1 {
-            timer?.invalidate()
+        if self.dateProgress == 1 {
+            self.timer?.invalidate()
             return
         }
     }
     
     private func updateCreditsProgress() {
         self.creditsProgressView.value = Float(self.creditsProgress)
-        percentageLabel  .text      = " \(Int(self.creditsProgress * 100))%"
+        self.percentageLabel.text      = " \(Int(self.creditsProgress * 100))%"
     }
     
     private func updateCreditslabel() {
@@ -96,78 +107,75 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     // MARK: Actions
     
     @IBAction func minusTouchDown(_ sender: UIButton) {
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(minus), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.minus), userInfo: nil, repeats: true)
         
     }
     
     @IBAction func minusTouchUpInside(_ sender: UIButton) {
-        minus()
-        timer?.invalidate()
-        timer = nil
+        self.minus()
+        self.timer?.invalidate()
+        self.timer = nil
     }
     
     @IBAction func plusTouchDown(_ sender: UIButton) {
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(plus), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.plus), userInfo: nil, repeats: true)
     }
 
     @IBAction func plusTouchUpInside(_ sender: UIButton) {
-        plus()
-        timer?.invalidate()
-        timer = nil
+        self.plus()
+        self.timer?.invalidate()
+        self.timer = nil
     }
     
     @objc private func minus() {
-        let money = Int(moneyTextField.text ?? "") ?? 0
-        moneyTextField.text = String(money-1)
+        let money = Int(self.moneyTextField.text ?? "") ?? 0
+        self.moneyTextField.text = String(money-1)
         
-        let timeInterval = (timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (timer?.timeInterval ?? 0)*2/3
-        timer?.invalidate()
-        timer = nil
+        let timeInterval = (self.timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (self.timer?.timeInterval ?? 0)*2/3
+        self.timer?.invalidate()
+        self.timer = nil
         
-        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(minus), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(self.minus), userInfo: nil, repeats: true)
     }
     
     @objc private func plus() {
-        let money = Int(moneyTextField.text ?? "") ?? 0
-        moneyTextField.text = String(money+1)
+        let money = Int(self.moneyTextField.text ?? "") ?? 0
+        self.moneyTextField.text = String(money+1)
         
-        let timeInterval = (timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (timer?.timeInterval ?? 0)*2/3
-        timer?.invalidate()
-        timer = nil
+        let timeInterval = (self.timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (self.timer?.timeInterval ?? 0)*2/3
+        self.timer?.invalidate()
+        self.timer = nil
         
-        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(plus), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(self.plus), userInfo: nil, repeats: true)
     }
     
     @IBAction func add(_ sender: UIButton) {
         
-        let userInput = Int(moneyTextField.text ?? "") ?? 0
+        let userInput = Int(self.moneyTextField.text ?? "") ?? 0
         
         self.dream?.currentCredits = (self.dream?.currentCredits ?? 0.0) + (Double(userInput))
         CoreDataManager.sharedInstance.addTransaction(uuid: UUID().uuidString, dream: self.dream!, date: Date(), credits: Double(userInput))
         
         CoreDataManager.sharedInstance.saveContext()
         
-        updateCreditsProgress()
+        self.updateCreditsProgress()
         
-        updateCreditslabel()
+        self.updateCreditslabel()
     }
     
     // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
 
         if let controller = segue.destination as? DRHistoryTableViewController {
-            controller.dream = dream
+            controller.dream = self.dream
         }
         
         let destinationNavigationController = segue.destination as? UINavigationController
         let targetController = destinationNavigationController?.topViewController
         
         if let controller = targetController as? DRAddTableViewController {
-            controller.dream = dream
+            controller.dream = self.dream
         }
     }
 

@@ -1,15 +1,15 @@
 //
-//  DRCircleProgressView.swift
+//  UICircleProgressView.swift
 //  Dream
 //
-//  Created by Богдан Чайковский on 14.03.2018.
+//  Created by Bogdan Chaikovsky on 15.03.18.
 //  Copyright © 2018 Bogdan Chaikovsky. All rights reserved.
 //
 
 import UIKit
 
 @IBDesignable
-class DRCircleProgressView: UIView {
+class UICircleProgressView: UIView {
     
     // MARK: Internal properties
     
@@ -232,4 +232,5 @@ public class CACircleLayer: CAShapeLayer {
     }
     
 }
+
 

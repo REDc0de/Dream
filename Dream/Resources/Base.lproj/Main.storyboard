@@ -95,11 +95,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Dreams" id="Fnb-uh-7Wu">
-                        <barButtonItem key="leftBarButtonItem" title="Profile" id="jUG-Zs-bFn">
-                            <connections>
-                                <segue destination="Vyt-ZI-XXg" kind="presentation" id="wsN-An-r0f"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jxF-du-iEM">
                             <connections>
                                 <segue destination="rRD-pp-ZVF" kind="presentation" id="vSF-nM-rQW"/>
@@ -176,42 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eko-O6-BRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3213.5999999999999" y="122.66009852216749"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="O5U-mW-xKD">
-            <objects>
-                <tableViewController id="JRf-16-zYo" customClass="DRProfileTableViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yNw-jR-6Lx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Q7G-5t-CCe">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q7G-5t-CCe" id="xhF-9m-0cX">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="JRf-16-zYo" id="tT6-kP-Ljn"/>
-                            <outlet property="delegate" destination="JRf-16-zYo" id="WAA-jx-1Ct"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Profile" id="MwH-vv-oQf">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="fQ0-9H-yCa">
-                            <connections>
-                                <action selector="close:" destination="JRf-16-zYo" id="MF8-ox-gNB"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yNc-RJ-tSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1001" y="1779"/>
+            <point key="canvasLocation" x="3214" y="123"/>
         </scene>
         <!--Dream-->
         <scene sceneID="UnD-WZ-pym">
@@ -221,10 +181,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-sj-BWx" customClass="DRCircleProgressView" customModule="Dream" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-sj-BWx" customClass="DRTimerCircleProgressView" customModule="Dream" customModuleProvider="target">
                                 <rect key="frame" x="18.666666666666657" y="193" width="337.66666666666674" height="415"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-Rq-xrc" customClass="DRCircleProgressView" customModule="Dream" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-Rq-xrc" customClass="UICircleProgressView" customModule="Dream" customModuleProvider="target">
                                         <rect key="frame" x="41.666666666666671" y="80.333333333333329" width="253.33333333333331" height="253.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKm-wk-pPE">
@@ -397,12 +357,12 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="creditsProgressView" destination="a5J-Rq-xrc" id="I2S-ut-Ygy"/>
+                        <outlet property="creditsProgressView" destination="a5J-Rq-xrc" id="hPh-ZC-C0E"/>
                         <outlet property="moneyTextField" destination="VwZ-A5-fT1" id="neT-KB-ylB"/>
                         <outlet property="percentageLabel" destination="aKm-wk-pPE" id="bJo-c6-Mym"/>
                         <outlet property="targetCreditsLabel" destination="DGr-V4-nnh" id="Agu-u8-Q00"/>
                         <outlet property="targetDateLabel" destination="kSv-j6-fZy" id="jxL-fy-zlX"/>
-                        <outlet property="timeProgressView" destination="b8V-sj-BWx" id="3cf-ZV-YTl"/>
+                        <outlet property="timerProgressView" destination="b8V-sj-BWx" id="dtQ-vJ-iG5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVU-1N-Lex" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -714,24 +674,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEo-90-qJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3215" y="971"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Jjz-EQ-t7m">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vyt-ZI-XXg" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DfK-BM-J5W">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="JRf-16-zYo" kind="relationship" relationship="rootViewController" id="ynu-sA-dMd"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nss-zo-utB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1002" y="971"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
