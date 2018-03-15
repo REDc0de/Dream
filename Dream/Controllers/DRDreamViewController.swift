@@ -32,7 +32,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Outlets    
     
-    @IBOutlet weak var targetDateLabel: UILabel!
+    @IBOutlet weak var timerLabel: DRTimerLabel!
     @IBOutlet weak var targetCreditsLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
     @IBOutlet weak var creditsTextField: UITextField!
@@ -46,20 +46,17 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.title = self.dream?.name
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.updateCreditsProgress()
-        
-        self.updateDateProgress()
         self.updateCreditslabel()
-        
+        self.updateCreditsProgress()
         
         if let startDate = self.dream?.startDate, let targetDate = self.dream?.targetDate  {
             self.timerProgressView.scheduleTimer(startDate: startDate, targetDate: targetDate)
+            self.timerLabel.scheduleTimer(targetDate: targetDate)
         }
     }
     
@@ -67,33 +64,11 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         super.viewDidDisappear(animated)
         
         self.timerProgressView.invalidateTimer()
+        self.timerLabel.invalidateTimer()
     }
     
     // MARK: Methods
-//
-//    private func setTimer() {
-//
-//        guard let startDate = self.dream?.startDate, let targetDate = self.dream?.targetDate else {
-//            return
-//        }
-//
-//        let timeInterval = abs(targetDate.timeIntervalSince(startDate))/360 // time interval for 1 degrees moving
-//
-//        self.timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(self.updateDateProgress), userInfo: nil, repeats: true)
-//    }
-    
-    @objc private func updateDateProgress() {
-        DispatchQueue.main.async {
-            self.timerProgressView.value = Float(self.dateProgress)
-            self.targetDateLabel.text = Date().offset(to: self.dream?.targetDate ?? Date())
-        }
-        
-        if self.dateProgress == 1 {
-            self.timer?.invalidate()
-            return
-        }
-    }
-    
+
     private func updateCreditsProgress() {
         self.creditsProgressView.value = Float(self.creditsProgress)
         self.percentageLabel.text      = " \(Int(self.creditsProgress * 100))%"
