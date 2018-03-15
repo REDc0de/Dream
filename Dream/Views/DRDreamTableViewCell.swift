@@ -14,4 +14,5 @@ class DRDreamTableViewCell: UITableViewCell {
     @IBOutlet weak var creditsLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    
 }

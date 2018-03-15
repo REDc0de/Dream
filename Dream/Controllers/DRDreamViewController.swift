@@ -35,9 +35,9 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var targetDateLabel: UILabel!
     @IBOutlet weak var targetCreditsLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
+    @IBOutlet weak var creditsTextField: UITextField!
     @IBOutlet weak var timerProgressView: DRTimerCircleProgressView!
     @IBOutlet weak var creditsProgressView: UICircleProgressView!
-    @IBOutlet weak var moneyTextField: UITextField!
     
     // MARK: - Lifecicle
     
@@ -46,6 +46,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.title = self.dream?.name
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,16 +56,17 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         
         self.updateDateProgress()
         self.updateCreditslabel()
-
         
-        guard let startDate = self.dream?.startDate, let targetDate = self.dream?.targetDate else {
-                        return
-                    }
         
-        self.timerProgressView.startDate  = startDate
-        self.timerProgressView.targetDate = targetDate
+        if let startDate = self.dream?.startDate, let targetDate = self.dream?.targetDate  {
+            self.timerProgressView.scheduleTimer(startDate: startDate, targetDate: targetDate)
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         
-//        self.setTimer()
+        self.timerProgressView.invalidateTimer()
     }
     
     // MARK: Methods
@@ -128,8 +130,8 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func minus() {
-        let money = Int(self.moneyTextField.text ?? "") ?? 0
-        self.moneyTextField.text = String(money-1)
+        let money = Int(self.creditsTextField.text ?? "") ?? 0
+        self.creditsTextField.text = String(money-1)
         
         let timeInterval = (self.timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (self.timer?.timeInterval ?? 0)*2/3
         self.timer?.invalidate()
@@ -139,8 +141,8 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func plus() {
-        let money = Int(self.moneyTextField.text ?? "") ?? 0
-        self.moneyTextField.text = String(money+1)
+        let money = Int(self.creditsTextField.text ?? "") ?? 0
+        self.creditsTextField.text = String(money+1)
         
         let timeInterval = (self.timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (self.timer?.timeInterval ?? 0)*2/3
         self.timer?.invalidate()
@@ -150,16 +152,14 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func add(_ sender: UIButton) {
-        
-        let userInput = Int(self.moneyTextField.text ?? "") ?? 0
-        
-        self.dream?.currentCredits = (self.dream?.currentCredits ?? 0.0) + (Double(userInput))
-        CoreDataManager.sharedInstance.addTransaction(uuid: UUID().uuidString, dream: self.dream!, date: Date(), credits: Double(userInput))
-        
+        guard let dream = self.dream, let creditsToAdd = Double(self.creditsTextField.text ?? String()) else {
+            return
+        }
+
+        dream.add(credits: creditsToAdd)
         CoreDataManager.sharedInstance.saveContext()
         
         self.updateCreditsProgress()
-        
         self.updateCreditslabel()
     }
     

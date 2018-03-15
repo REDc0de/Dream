@@ -16,6 +16,7 @@
 		43705DB9205870BE00C213CD /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 43705DB8205870BE00C213CD /* Localizable.stringsdict */; };
 		43D39B47205AF20300FBCA98 /* UICircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D39B46205AF20300FBCA98 /* UICircleProgressView.swift */; };
 		43D39B49205AF2C600FBCA98 /* DRTimerCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D39B48205AF2C600FBCA98 /* DRTimerCircleProgressView.swift */; };
+		43D39B4B205B03F600FBCA98 /* Dream+HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D39B4A205B03F600FBCA98 /* Dream+HelperMethods.swift */; };
 		43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F1203791B300DEB77F /* AppDelegate.swift */; };
 		43E425F7203791B300DEB77F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E425F5203791B300DEB77F /* Main.storyboard */; };
 		43E425FA203791B300DEB77F /* Dream.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F8203791B300DEB77F /* Dream.xcdatamodeld */; };
@@ -60,6 +61,7 @@
 		43705DB8205870BE00C213CD /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		43D39B46205AF20300FBCA98 /* UICircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICircleProgressView.swift; sourceTree = "<group>"; };
 		43D39B48205AF2C600FBCA98 /* DRTimerCircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRTimerCircleProgressView.swift; sourceTree = "<group>"; };
+		43D39B4A205B03F600FBCA98 /* Dream+HelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Dream+HelperMethods.swift"; path = "Dream/Models/Dream+HelperMethods.swift"; sourceTree = SOURCE_ROOT; };
 		43E425EE203791B300DEB77F /* Dream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E425F1203791B300DEB77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43E425F6203791B300DEB77F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +118,33 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		43D39B4C205B0AE400FBCA98 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				43E426352037B1AB00DEB77F /* UIColor+Palette.swift */,
+				436FCA962055F30300AA91F4 /* UIView+CALayer.swift */,
+				B0D837B5203C5604005F48E0 /* UIViewController+UIAlertController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		43D39B4D205B0B0100FBCA98 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				43E426372037B1CE00DEB77F /* Double+Progress.swift */,
+				4360A857204DD06700ED558F /* Date+Difference.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		43D39B4E205B0BC200FBCA98 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				43D39B4A205B03F600FBCA98 /* Dream+HelperMethods.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		43E425E5203791B300DEB77F = {
 			isa = PBXGroup;
 			children = (
@@ -141,7 +170,7 @@
 		43E425F0203791B300DEB77F /* Dream */ = {
 			isa = PBXGroup;
 			children = (
-				B0D837B9203C6BBF005F48E0 /* Models */,
+				43D39B4E205B0BC200FBCA98 /* Models */,
 				43E426232037922C00DEB77F /* Views */,
 				43E426242037923400DEB77F /* Controllers */,
 				43E426262037928800DEB77F /* Resources */,
@@ -196,11 +225,8 @@
 		43E426252037925000DEB77F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				43E426352037B1AB00DEB77F /* UIColor+Palette.swift */,
-				436FCA962055F30300AA91F4 /* UIView+CALayer.swift */,
-				B0D837B5203C5604005F48E0 /* UIViewController+UIAlertController.swift */,
-				43E426372037B1CE00DEB77F /* Double+Progress.swift */,
-				4360A857204DD06700ED558F /* Date+Difference.swift */,
+				43D39B4D205B0B0100FBCA98 /* Foundation */,
+				43D39B4C205B0AE400FBCA98 /* UI */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,13 +241,6 @@
 				43705DB8205870BE00C213CD /* Localizable.stringsdict */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		B0D837B9203C6BBF005F48E0 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +385,7 @@
 				43E426302037A08D00DEB77F /* DRHistoryTableViewController.swift in Sources */,
 				4360A858204DD06700ED558F /* Date+Difference.swift in Sources */,
 				43E426322037A0A100DEB77F /* DRDreamViewController.swift in Sources */,
+				43D39B4B205B03F600FBCA98 /* Dream+HelperMethods.swift in Sources */,
 				436E23832048A832004B0298 /* DREmtyTableView.swift in Sources */,
 				436FCA972055F30300AA91F4 /* UIView+CALayer.swift in Sources */,
 				43D39B49205AF2C600FBCA98 /* DRTimerCircleProgressView.swift in Sources */,
