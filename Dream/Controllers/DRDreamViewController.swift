@@ -81,25 +81,34 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
     @IBAction func minusTouchDown(_ sender: UIButton) {
-        self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.minus), userInfo: nil, repeats: true)
-        
+        self.minus()
+        self.setTimer(selector: #selector(self.minus))
     }
     
     @IBAction func minusTouchUpInside(_ sender: UIButton) {
-        self.minus()
+        self.timer?.invalidate()
+        self.timer = nil
+    }
+    
+    @IBAction func minusTouchDragExit(_ sender: UIButton) {
         self.timer?.invalidate()
         self.timer = nil
     }
     
     @IBAction func plusTouchDown(_ sender: UIButton) {
-        self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.plus), userInfo: nil, repeats: true)
+        self.plus()
+        self.setTimer(selector: #selector(self.plus))
     }
 
     @IBAction func plusTouchUpInside(_ sender: UIButton) {
-        self.plus()
+        self.timer?.invalidate()
+        self.timer = nil
+    }
+    
+    @IBAction func plusDragExit(_ sender: UIButton) {
         self.timer?.invalidate()
         self.timer = nil
     }
@@ -107,23 +116,21 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
     @objc private func minus() {
         let money = Int(self.creditsTextField.text ?? "") ?? 0
         self.creditsTextField.text = String(money-1)
-        
-        let timeInterval = (self.timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (self.timer?.timeInterval ?? 0)*2/3
-        self.timer?.invalidate()
-        self.timer = nil
-        
-        self.timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(self.minus), userInfo: nil, repeats: true)
+        self.setTimer(selector: #selector(self.minus))
     }
     
     @objc private func plus() {
         let money = Int(self.creditsTextField.text ?? "") ?? 0
         self.creditsTextField.text = String(money+1)
+        self.setTimer(selector: #selector(self.plus))
+    }
+    
+    private func setTimer(selector: Selector) {
+        let timeInterval = (self.timer?.timeInterval ?? 1.0) < 0.01 ? 0.01 : (self.timer?.timeInterval ?? 1.0) * 2/3
         
-        let timeInterval = (self.timer?.timeInterval ?? 0) < 0.01 ? 0.01 : (self.timer?.timeInterval ?? 0)*2/3
         self.timer?.invalidate()
         self.timer = nil
-        
-        self.timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(self.plus), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: selector, userInfo: nil, repeats: true)
     }
     
     @IBAction func add(_ sender: UIButton) {
