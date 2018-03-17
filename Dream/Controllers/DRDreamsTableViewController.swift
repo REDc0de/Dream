@@ -12,8 +12,8 @@ class DRDreamsTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    fileprivate var dreams           = [Dream]()
-    fileprivate var filteredDreams   = [Dream]()
+    fileprivate var dreams = [Dream]()
+    fileprivate var filteredDreams = [Dream]()
     fileprivate var searchController = UISearchController(searchResultsController: nil)
     
     // MARK: - Lifecicle
@@ -21,17 +21,17 @@ class DRDreamsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControl?.addTarget(self, action: #selector(update), for: .valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(self.update), for: .valueChanged)
         
-        clearsSelectionOnViewWillAppear = true
-        tableView.backgroundView = DREmtyTableView()
-        setupNavBar()
+        self.clearsSelectionOnViewWillAppear = true
+        self.tableView.backgroundView = DREmtyTableView()
+        self.setupNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        update()
+        self.update()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,7 +40,7 @@ class DRDreamsTableViewController: UITableViewController {
         let isNeedToPresentIntro = UserDefaults.standard.bool(forKey: "isNeedToPresentIntro")
         
         if !isNeedToPresentIntro {
-            performSegue(withIdentifier: "DRIntoViewController", sender: self)
+            self.performSegue(withIdentifier: "DRIntoViewController", sender: self)
         }
     }
     
@@ -48,37 +48,39 @@ class DRDreamsTableViewController: UITableViewController {
     
     fileprivate func isFiltering() -> Bool {
         
-        return searchController.isActive && !searchBarIsEmpty()
+        return self.searchController.isActive && !self.searchBarIsEmpty()
     }
     
     fileprivate func searchBarIsEmpty() -> Bool {
         
-        return searchController.searchBar.text?.isEmpty ?? true
+        return self.searchController.searchBar.text?.isEmpty ?? true
     }
     
     fileprivate func setupNavBar() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        searchController.searchResultsUpdater                 = self
-        searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
         
-        self.navigationItem.searchController            = searchController
+        self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = true
         
         self.definesPresentationContext = true
     }
     
     fileprivate func moveItem(at sourceIndex: Int, to destinationIndex: Int) {
-        guard sourceIndex != destinationIndex else { return }
+        guard sourceIndex != destinationIndex else {
+            return
+        }
         
-        let dream = dreams[sourceIndex]
-        dreams.remove(at: sourceIndex)
-        dreams.insert(dream, at: destinationIndex)
+        let dream = self.dreams[sourceIndex]
+        self.dreams.remove(at: sourceIndex)
+        self.dreams.insert(dream, at: destinationIndex)
     }
     
     @objc fileprivate func update() {
-        dreams         = CoreDataManager.sharedInstance.fetchDreams()
-        filteredDreams = dreams
+        self.dreams = CoreDataManager.sharedInstance.fetchDreams()
+        self.filteredDreams = self.dreams
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
             self.refreshControl?.endRefreshing()
         })
@@ -88,20 +90,20 @@ class DRDreamsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        tableView.backgroundView?.isHidden = dreams.count != 0
+        tableView.backgroundView?.isHidden = !self.dreams.isEmpty
         
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return isFiltering() ? filteredDreams.count : dreams.count
+        return self.isFiltering() ? self.filteredDreams.count : self.dreams.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRDreamsTableViewControllerCell", for: indexPath)
         
-        let dreamsArray = isFiltering() ? filteredDreams : dreams
+        let dreamsArray = self.isFiltering() ? self.filteredDreams : self.dreams
         
         if let cell = cell as? DRDreamTableViewCell {
             cell.nameLabel.text = dreamsArray[indexPath.row].name
@@ -110,13 +112,12 @@ class DRDreamsTableViewController: UITableViewController {
             cell.backgroundImageView.image = UIImage(data: dreamsArray[indexPath.row].image ?? Data())
         }
 
-        
         return cell
     }
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+
         return true
     }
     
@@ -125,20 +126,20 @@ class DRDreamsTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             
-            var dream = Dream()
+            var dream: Dream
             
-            if isFiltering() {
-                dream = filteredDreams[indexPath.row]
-                filteredDreams.remove(at: indexPath.row)
+            if self.isFiltering() {
+                dream = self.filteredDreams[indexPath.row]
+                self.filteredDreams.remove(at: indexPath.row)
             } else {
-                dream = dreams[indexPath.row]
+                dream = self.dreams[indexPath.row]
             }
             
-            guard let index = dreams.index(of: dream) else {
+            guard let index = self.dreams.index(of: dream) else {
                 return
             }
             
-            dreams.remove(at: index)
+            self.dreams.remove(at: index)
             
             CoreDataManager.sharedInstance.deleteDream(dream)
             CoreDataManager.sharedInstance.saveContext()
@@ -149,21 +150,6 @@ class DRDreamsTableViewController: UITableViewController {
         }
     }
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -171,7 +157,7 @@ class DRDreamsTableViewController: UITableViewController {
             guard let indexPath      = tableView.indexPath(for: cell)              else { return }
             guard let viewController = segue.destination as? DRDreamViewController else { return }
             
-            let array = isFiltering() ? filteredDreams : dreams
+            let array = self.isFiltering() ? self.filteredDreams : self.dreams
             viewController.dream = array[indexPath.row]
         }
     }
@@ -182,7 +168,7 @@ extension DRDreamsTableViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.isActive {
-            filteredDreams = dreams.filter({( dream : Dream) -> Bool in
+            self.filteredDreams = self.dreams.filter({( dream : Dream) -> Bool in
                 
                 return dream.name?.lowercased().contains((searchController.searchBar.text ?? String()).lowercased()) ?? false
             })

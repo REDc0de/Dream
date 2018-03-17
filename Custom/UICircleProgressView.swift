@@ -68,8 +68,12 @@ class UICircleProgressView: UIView {
     
     @IBInspectable
     open var value: Float {
-        get { return _value ?? 0 }
-        set { self.set(value: newValue, oldValue: self._value) }
+        get {
+            return _value ?? 0
+        }
+        set {
+            self.set(value: newValue, oldValue: self._value)
+        }
     }
     
     // MARK: UIView
@@ -213,11 +217,11 @@ public class CACircleLayer: CAShapeLayer {
         let path = CGMutablePath()
         
         path.addArc(
-            center    : CGPoint(x: self.bounds.midX, y: self.bounds.midY),
-            radius    : ceil(min(self.bounds.width / 2, self.bounds.height / 2) - self.lineWidth / 2) - 1,
+            center: CGPoint(x: self.bounds.midX, y: self.bounds.midY),
+            radius: ceil(min(self.bounds.width / 2, self.bounds.height / 2) - self.lineWidth / 2) - 1,
             startAngle: .pi / -2,
-            endAngle  : .pi + .pi / 2,
-            clockwise : false
+            endAngle: .pi + .pi / 2,
+            clockwise: false
         )
         
         return path
@@ -225,10 +229,10 @@ public class CACircleLayer: CAShapeLayer {
     
     fileprivate func setup() {
         
-        self.path        = self.layerPath()
+        self.path = self.layerPath()
         self.strokeColor = UIColor.black.cgColor
-        self.fillColor   = self.backgroundColor
-        self.lineCap     = kCALineCapRound
+        self.fillColor = self.backgroundColor
+        self.lineCap = kCALineCapRound
     }
     
 }

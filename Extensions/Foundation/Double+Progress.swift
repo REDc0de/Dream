@@ -21,7 +21,9 @@ extension Double {
     }
     
     public func progress(between number: Double?, and targetNumber: Double?) -> Double {
-        guard let number = number, let targetNumber = targetNumber else { return 0 }
+        guard let number = number, let targetNumber = targetNumber else {
+            return 0
+        }
         
         let progress = number/targetNumber
 

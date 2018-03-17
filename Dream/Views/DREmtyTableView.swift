@@ -21,21 +21,21 @@ class DREmtyTableView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setup()
+        self.setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        setup()
+        self.setup()
     }
     
     // MARK: - Methods
     
     private func setup() {
-        addImage()
-        addHeaderLabel()
-        addInfoLabel()
+        self.addImage()
+        self.addHeaderLabel()
+        self.addInfoLabel()
     }
     
     private func addImage() {
@@ -43,36 +43,36 @@ class DREmtyTableView: UIView {
     }
     
     private func addHeaderLabel() {
-        headerLabel.text = "Dreams"
-        headerLabel.textColor = UIColor.lightGray
-        headerLabel.textAlignment = .center
-        headerLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        self.headerLabel.text = "Dreams"
+        self.headerLabel.textColor = UIColor.lightGray
+        self.headerLabel.textAlignment = .center
+        self.headerLabel.font = UIFont.boldSystemFont(ofSize: 30)
         
-        addSubview(headerLabel)
+        self.addSubview(self.headerLabel)
         
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.headerLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            headerLabel.centerYAnchor.constraintLessThanOrEqualToSystemSpacingBelow(centerYAnchor, multiplier: 1),
-            headerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            self.headerLabel.centerYAnchor.constraintLessThanOrEqualToSystemSpacingBelow(self.centerYAnchor, multiplier: 1),
+            self.headerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             ])
     }
     
     private func addInfoLabel() {
-        infoLabel.text = "You dont have any dreams yet.\nAll Your dreams will show up here."
-        infoLabel.textColor = UIColor.lightGray
-        infoLabel.numberOfLines = 0
-        infoLabel.textAlignment = .center
-        infoLabel.font = UIFont.systemFont(ofSize: 18)
+        self.infoLabel.text = "You dont have any dreams yet.\nAll Your dreams will show up here."
+        self.infoLabel.textColor = UIColor.lightGray
+        self.infoLabel.numberOfLines = 0
+        self.infoLabel.textAlignment = .center
+        self.infoLabel.font = UIFont.systemFont(ofSize: 18)
         
-        addSubview(infoLabel)
+        self.addSubview(self.infoLabel)
         
-        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.infoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            infoLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 10),
-            infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            infoLabel.widthAnchor.constraint(equalToConstant: 300)
+            self.infoLabel.topAnchor.constraint(equalTo: self.headerLabel.bottomAnchor, constant: 10),
+            self.infoLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.infoLabel.widthAnchor.constraint(equalToConstant: 300)
             ])
     }
 

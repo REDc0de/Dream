@@ -20,13 +20,13 @@ class CoreDataManager {
     // MARK: - Methods
     
     public func addDream(uuid: String, name: String, startDate: Date, targetDate: Date, currentCredits: Double, targetCredits: Double, image: Data, info: String) {
-        guard let entity = NSEntityDescription.entity(forEntityName: "Dream", in: managedObjectContext) else {
+        guard let entity = NSEntityDescription.entity(forEntityName: "Dream", in: self.managedObjectContext) else {
             print("CoreDataManager: add entity error")
             
             return
         }
 
-        let dream = NSManagedObject(entity: entity, insertInto: managedObjectContext)
+        let dream = NSManagedObject(entity: entity, insertInto: self.managedObjectContext)
         
         dream.setValue(uuid,           forKeyPath: "uuid"          )
         dream.setValue(name,           forKeyPath: "name"          )
@@ -39,13 +39,13 @@ class CoreDataManager {
     }
     
     public func addTransaction(uuid: String, dream: Dream, date: Date, credits: Double) {
-        guard let entity = NSEntityDescription.entity(forEntityName: "Transaction", in: managedObjectContext) else {
+        guard let entity = NSEntityDescription.entity(forEntityName: "Transaction", in: self.managedObjectContext) else {
             print("CoreDataManager: add entity error")
             
             return
         }
         
-        let transaction  = NSManagedObject(entity: entity, insertInto: managedObjectContext)
+        let transaction  = NSManagedObject(entity: entity, insertInto: self.managedObjectContext)
         
         transaction.setValue(uuid,    forKeyPath: "uuid"    )
         transaction.setValue(date,    forKeyPath: "date"    )
@@ -58,7 +58,7 @@ class CoreDataManager {
         let fetchRequest = NSFetchRequest<Dream>(entityName: "Dream")
         
         do {
-            let dreams = try managedObjectContext.fetch(fetchRequest)
+            let dreams = try self.managedObjectContext.fetch(fetchRequest)
             return dreams
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -67,13 +67,13 @@ class CoreDataManager {
     }
     
     public func deleteDream(_ object: Dream) {
-        managedObjectContext.delete(object)
+        self.managedObjectContext.delete(object)
     }
     
     public func saveContext() {
-        if managedObjectContext.hasChanges {
+        if self.managedObjectContext.hasChanges {
             do {
-                try managedObjectContext.save()
+                try self.managedObjectContext.save()
             } catch let error as NSError {
                 print(error.localizedDescription)
             }

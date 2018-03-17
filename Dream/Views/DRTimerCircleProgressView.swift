@@ -15,7 +15,6 @@ class DRTimerCircleProgressView: UICircleProgressView {
     private var timer: Timer?
     private var startDate: Date?
     private var targetDate: Date?
-    
     private var timeProgress: Double {
         get{
             return Double().progress(between: self.startDate, and: self.targetDate)

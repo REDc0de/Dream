@@ -20,10 +20,10 @@ class DRTimerLabel: UILabel {
     public func scheduleTimer(targetDate: Date) {
         self.targetDate = targetDate
         
-        self.updateValue()
+        self.updateText()
         
         let timeInterval = targetDate.timeIntervalSince(Date())/360 // time interval for 1 degrees filling
-        self.timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(self.updateValue), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(self.updateText), userInfo: nil, repeats: true)
     }
     
     public func invalidateTimer() {
@@ -33,7 +33,7 @@ class DRTimerLabel: UILabel {
     
     // MARK: - Actions
     
-    @objc private func updateValue() {
+    @objc private func updateText() {
         guard let targetDate = self.targetDate else {
             return
         }

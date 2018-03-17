@@ -17,8 +17,8 @@ extension UIViewController {
         actions.forEach { (title, action) in
             alert.addAction(
                 UIAlertAction(
-                    title  : title,
-                    style  : .default,
+                    title: title,
+                    style: .default,
                     handler: action != nil ? { _ in action?() } : nil
                 )
             )
@@ -38,7 +38,7 @@ extension UIViewController {
     open func presentAlert(title: String?, message: String?, yesAction: @escaping (() -> Swift.Void), noAction: (() -> Swift.Void)? = nil) {
         
         presentAlert(
-            title  : title,
+            title: title,
             message: message,
             actions: (
                 NSLocalizedString("Yes", comment: "Yes button in alert"),
