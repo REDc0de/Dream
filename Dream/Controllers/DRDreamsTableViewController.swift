@@ -79,7 +79,10 @@ class DRDreamsTableViewController: UITableViewController {
     }
     
     @objc fileprivate func update() {
-        self.dreams = CoreDataManager.sharedInstance.fetchDreams()
+        self.dreams = CoreDataManager.sharedInstance.fetchDreams().sorted(by: {
+            $0.targetDate! < $1.targetDate!
+        })
+        
         self.filteredDreams = self.dreams
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
             self.refreshControl?.endRefreshing()
