@@ -29,7 +29,6 @@ class DRAddTableViewController: UITableViewController {
     private var image        : UIImage?
     private var name         : String?
     private var info         : String?
-    
     private var startDate    : Date?
     private var targetDate   : Date = Date() {
         didSet {
@@ -51,22 +50,26 @@ class DRAddTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imagePicker.delegate      = self
-        imagePicker.allowsEditing = true
+        self.imagePicker.delegate = self
+        self.imagePicker.allowsEditing = true
         
-        datePicker.minimumDate = Date()
+        self.datePicker.minimumDate = Date()
         
-        targetDate = dream?.targetDate ?? Date()
-        nameTextField.text = dream?.name
-        infoView.text = dream?.info
-        targetAmountTextField.text = String(dream?.targetCredits ?? 0)
-        
-        print("Dream:", dream)
+        if let dream = self.dream {
+            self.targetDate = dream.targetDate ?? Date()
+            self.nameTextField.text = dream.name
+            self.infoView.text = dream.info
+            self.targetAmountTextField.text = String(dream.targetCredits)
+            
+            if let imageData = dream.image {
+              self.dreamImageView.image = UIImage(data: imageData)
+            }
+        }
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
+        self.view.addGestureRecognizer(tap)
         
         self.clearsSelectionOnViewWillAppear = false
     }
@@ -80,11 +83,11 @@ class DRAddTableViewController: UITableViewController {
     // MARK: - Methods
     
     private func toggleDatePicker() {
-        isDatePickerVisible = !isDatePickerVisible
+        self.isDatePickerVisible = !self.isDatePickerVisible
         
         datePicker.date = targetDate
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
     }
     
     private func showImagePickerActionSheet() {
@@ -104,7 +107,7 @@ class DRAddTableViewController: UITableViewController {
         
         if actionSheet.actions.isEmpty {
             // Case that should never happen
-            presentAlert(title: "Warning", message: "No available source type.")
+            self.presentAlert(title: "Warning", message: "No available source type.")
             
             return
         }
@@ -115,17 +118,17 @@ class DRAddTableViewController: UITableViewController {
     }
     
     private func presentCamera() {
-        imagePicker.sourceType = .camera
+        self.imagePicker.sourceType = .camera
         
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .restricted:
-            presentAlertWhenStatus(isDenied: false, sourceType: .camera)
+            self.presentAlertWhenStatus(isDenied: false, sourceType: .camera)
         case .denied:
-            presentAlertWhenStatus(isDenied: true, sourceType: .camera)
+            self.presentAlertWhenStatus(isDenied: true, sourceType: .camera)
         case .authorized:
-            present(imagePicker, animated: true)
+            self.present(self.imagePicker, animated: true)
         case .notDetermined:
-            present(imagePicker, animated: true) {
+            self.present(self.imagePicker, animated: true) {
                 AVCaptureDevice.requestAccess(for: .video) {
                     guard !$0 else {
                         
@@ -140,17 +143,17 @@ class DRAddTableViewController: UITableViewController {
     }
     
     private func presentPhotoLibrary() {
-        imagePicker.sourceType = .photoLibrary
+        self.imagePicker.sourceType = .photoLibrary
 
         switch PHPhotoLibrary.authorizationStatus() {
         case .restricted:
-            presentAlertWhenStatus(isDenied: false, sourceType: .photoLibrary)
+            self.presentAlertWhenStatus(isDenied: false, sourceType: .photoLibrary)
         case .denied:
-            presentAlertWhenStatus(isDenied: true, sourceType: .photoLibrary)
+            self.presentAlertWhenStatus(isDenied: true, sourceType: .photoLibrary)
         case .authorized:
-            present(imagePicker, animated: true)
+            self.present(self.imagePicker, animated: true)
         case .notDetermined:
-            present(imagePicker, animated: true) {
+            self.present(self.imagePicker, animated: true) {
                 PHPhotoLibrary.requestAuthorization {
                     guard $0 != .authorized else {
                         
@@ -201,11 +204,11 @@ class DRAddTableViewController: UITableViewController {
             }
         }
         
-        presentAlert(
-            title    : info.title,
-            message  : info.message,
+        self.presentAlert(
+            title: info.title,
+            message: info.message,
             yesAction: { action(URL(string: UIApplicationOpenSettingsURLString)) },
-            noAction : { action(nil) }
+            noAction: { action(nil) }
         )
     }
     
@@ -221,14 +224,23 @@ class DRAddTableViewController: UITableViewController {
     
     @IBAction func done(_ sender: UIBarButtonItem) {
         // For tests
-        CoreDataManager.sharedInstance.addDream(uuid          : UUID().uuidString,
-                                                name          : nameTextField.text ?? "Dream",
-                                                startDate     : Date(),
-                                                targetDate    : targetDate,
-                                                currentCredits: 0,
-                                                targetCredits : Double(targetAmountTextField.text ?? "") ?? 0,
-                                                image         : UIImagePNGRepresentation(dreamImageView.image ?? UIImage()) ?? Data(),
-                                                info          : infoView.text ?? "")
+        
+        if !(self.dream != nil) {
+            CoreDataManager.sharedInstance.addDream(uuid: UUID().uuidString,
+                                                    name: nameTextField.text ?? "Dream",
+                                                    startDate: Date(),
+                                                    targetDate: targetDate,
+                                                    currentCredits: 0,
+                                                    targetCredits: Double(targetAmountTextField.text ?? "") ?? 0,
+                                                    image: UIImagePNGRepresentation(dreamImageView.image ?? UIImage()) ?? Data(),
+                                                    info: infoView.text ?? "")
+        } else {
+            self.dream?.name = nameTextField.text ?? "Dream"
+            self.dream?.targetDate = targetDate
+            self.dream?.targetCredits = Double(targetAmountTextField.text ?? "") ?? 0
+            self.dream?.info = infoView.text ?? ""
+        }
+        
         CoreDataManager.sharedInstance.saveContext()
         
         dismiss(animated: true, completion: nil)
