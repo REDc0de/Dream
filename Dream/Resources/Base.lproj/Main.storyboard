@@ -52,7 +52,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqN-pS-fkM">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqN-pS-fkM" customClass="DRTimerLabel" customModule="Dream" customModuleProvider="target">
                                             <rect key="frame" x="187.66666666666663" y="63.999999999999993" width="172.33333333333337" height="18.666666666666664"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,8 +80,8 @@
                                 <connections>
                                     <outlet property="backgroundImageView" destination="q81-Ko-iha" id="cCw-rl-96n"/>
                                     <outlet property="creditsLabel" destination="JAX-JJ-cGS" id="Jug-TN-Vf0"/>
-                                    <outlet property="dateLabel" destination="rqN-pS-fkM" id="ePo-WU-5HZ"/>
                                     <outlet property="nameLabel" destination="EgC-bm-dAk" id="6Vd-ZY-p7h"/>
+                                    <outlet property="timerLabel" destination="rqN-pS-fkM" id="BT3-gr-sFU"/>
                                     <segue destination="NHT-i1-DyJ" kind="show" id="0ni-Pf-uLA">
                                         <segue key="commit" inheritsFrom="parent" id="yna-RC-i8h"/>
                                         <segue key="preview" inheritsFrom="commit" id="spc-Mq-WfA"/>
@@ -679,7 +679,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rHL-7s-WdD"/>
+        <segue reference="vSF-nM-rQW"/>
         <segue reference="0ni-Pf-uLA"/>
     </inferredMetricsTieBreakers>
 </document>

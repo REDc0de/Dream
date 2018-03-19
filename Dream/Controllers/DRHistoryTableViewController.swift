@@ -37,6 +37,8 @@ class DRHistoryTableViewController: UITableViewController {
         for transaction in array {
             transactions.append(transaction as! Transaction)
         }
+        
+        self.transactions = self.transactions.sorted(by: {$0.date! > $1.date!})
     }
     
     // MARK: - Table view data source

@@ -109,10 +109,7 @@ class DRDreamsTableViewController: UITableViewController {
         let dreamsArray = self.isFiltering() ? self.filteredDreams : self.dreams
         
         if let cell = cell as? DRDreamTableViewCell {
-            cell.nameLabel.text = dreamsArray[indexPath.row].name
-            cell.creditsLabel.text = String(format: "%.f$", dreamsArray[indexPath.row].currentCredits) + "/" + String(format: "%.f$", dreamsArray[indexPath.row].targetCredits)
-            cell.dateLabel.text = Date().offset(to: dreamsArray[indexPath.row].targetDate ?? Date())
-            cell.backgroundImageView.image = UIImage(data: dreamsArray[indexPath.row].image ?? Data())
+            cell.dream = dreamsArray[indexPath.row]
         }
 
         return cell
