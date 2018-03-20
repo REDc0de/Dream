@@ -30,12 +30,12 @@ class DRHistoryTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        transactions = [Transaction]()
+        self.transactions = [Transaction]()
         
-        let array = dream?.transactions ?? []
+        let array = self.dream?.transactions ?? []
         
         for transaction in array {
-            transactions.append(transaction as! Transaction)
+            self.transactions.append(transaction as! Transaction)
         }
         
         self.transactions = self.transactions.sorted(by: {$0.date! > $1.date!})
@@ -50,18 +50,18 @@ class DRHistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return transactions.count
+        return self.transactions.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRHistoryTableViewController", for: indexPath)
         
-        let string = transactions[indexPath.row].credits > 0 ? ("+" + String(transactions[indexPath.row].credits)) : String(transactions[indexPath.row].credits)
-        cell.textLabel?.text      = string
-        cell.textLabel?.textColor = transactions[indexPath.row].credits < 0 ? .thunderbird : .shamrock
+        let string = self.transactions[indexPath.row].credits > 0 ? ("+" + String(self.transactions[indexPath.row].credits)) : String(self.transactions[indexPath.row].credits)
+        cell.textLabel?.text = string
+        cell.textLabel?.textColor = self.transactions[indexPath.row].credits < 0 ? .thunderbird : .shamrock
         
-        let date = transactions[indexPath.row].date
+        let date = self.transactions[indexPath.row].date
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy HH:mm"
         let result = formatter.string(from: date ?? Date())

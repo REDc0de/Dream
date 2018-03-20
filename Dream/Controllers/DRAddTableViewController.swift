@@ -25,14 +25,14 @@ class DRAddTableViewController: UITableViewController {
     private var isDatePickerVisible: Bool = false
     
     private var currentAmount: Int?
-    private var targetAmount : Int?
-    private var image        : UIImage?
-    private var name         : String?
-    private var info         : String?
-    private var startDate    : Date?
-    private var targetDate   : Date = Date() {
+    private var targetAmount: Int?
+    private var image: UIImage?
+    private var name: String?
+    private var info: String?
+    private var startDate: Date?
+    private var targetDate: Date = Date() {
         didSet {
-            targetDateLabel.text = DateFormatter.localizedString(from: datePicker.date, dateStyle: .long, timeStyle: .short)
+            self.targetDateLabel.text = DateFormatter.localizedString(from: self.datePicker.date, dateStyle: .long, timeStyle: .short)
         }
     }
     
@@ -66,7 +66,7 @@ class DRAddTableViewController: UITableViewController {
             }
         }
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dissmissKeyboard))
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
@@ -77,7 +77,7 @@ class DRAddTableViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        dissmissKeyboard()
+        self.dissmissKeyboard()
     }
     
     // MARK: - Methods
@@ -85,7 +85,7 @@ class DRAddTableViewController: UITableViewController {
     private func toggleDatePicker() {
         self.isDatePickerVisible = !self.isDatePickerVisible
         
-        datePicker.date = targetDate
+        self.datePicker.date = self.targetDate
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
     }
@@ -114,7 +114,7 @@ class DRAddTableViewController: UITableViewController {
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        present(actionSheet, animated: true, completion: nil)
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     private func presentCamera() {
@@ -213,13 +213,13 @@ class DRAddTableViewController: UITableViewController {
     }
     
     @objc private func dissmissKeyboard() {
-        view.endEditing(true)
+        self.view.endEditing(true)
     }
 
     // MARK: - Actions
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func done(_ sender: UIBarButtonItem) {
@@ -227,29 +227,32 @@ class DRAddTableViewController: UITableViewController {
         
         if !(self.dream != nil) {
             CoreDataManager.sharedInstance.addDream(uuid: UUID().uuidString,
-                                                    name: nameTextField.text ?? "Dream",
+                                                    name: self.nameTextField.text ?? "Dream",
                                                     startDate: Date(),
-                                                    targetDate: targetDate,
+                                                    targetDate: self.targetDate,
                                                     currentCredits: 0,
-                                                    targetCredits: Double(targetAmountTextField.text ?? "") ?? 0,
-                                                    image: UIImagePNGRepresentation(dreamImageView.image ?? UIImage()) ?? Data(),
-                                                    info: infoView.text ?? "")
+                                                    targetCredits: Double(self.targetAmountTextField.text ?? "") ?? 0,
+                                                    image: UIImagePNGRepresentation(self.dreamImageView.image ?? UIImage()) ?? Data(),
+                                                    info: self.infoView.text ?? "")
         } else {
-            self.dream?.name = nameTextField.text ?? "Dream"
-            self.dream?.targetDate = targetDate
-            self.dream?.targetCredits = Double(targetAmountTextField.text ?? "") ?? 0
-            self.dream?.info = infoView.text ?? ""
+            self.dream?.name = self.nameTextField.text ?? "Dream"
+            self.dream?.targetDate = self.targetDate
+            self.dream?.targetCredits = Double(self.targetAmountTextField.text ?? "") ?? 0
+            self.dream?.info = self.infoView.text ?? ""
         }
         
         CoreDataManager.sharedInstance.saveContext()
         
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
-        if !isDatePickerVisible { datePicker = UIDatePicker()
-            return }
-        targetDate = datePicker.date
+        if !self.isDatePickerVisible {
+            self.datePicker = UIDatePicker()
+            
+            return
+        }
+        self.targetDate = self.datePicker.date
     }
     
     // MARK: - Table view data source
@@ -270,9 +273,9 @@ class DRAddTableViewController: UITableViewController {
         
         switch indexPath.row {
         case 0:
-            showImagePickerActionSheet()
+            self.showImagePickerActionSheet()
         case 3:
-            toggleDatePicker()
+            self.toggleDatePicker()
         default:
             break
         }
@@ -281,7 +284,7 @@ class DRAddTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if !isDatePickerVisible && indexPath.row == 4 {
+        if !self.isDatePickerVisible && indexPath.row == 4 {
             
             return 0
         } else {
@@ -295,13 +298,15 @@ class DRAddTableViewController: UITableViewController {
 extension DRAddTableViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if isDatePickerVisible { toggleDatePicker() }
+        if self.isDatePickerVisible {
+            self.toggleDatePicker()
+        }
         
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        dissmissKeyboard()
+        self.dissmissKeyboard()
         
         return true
     }
@@ -311,7 +316,9 @@ extension DRAddTableViewController: UITextFieldDelegate {
 extension DRAddTableViewController: UITextViewDelegate {
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        if isDatePickerVisible { toggleDatePicker() }
+        if self.isDatePickerVisible {
+            self.toggleDatePicker()
+        }
         
         return true
     }
@@ -321,13 +328,13 @@ extension DRAddTableViewController: UITextViewDelegate {
 extension DRAddTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        dreamImageView.image =  info[UIImagePickerControllerEditedImage] as? UIImage == nil ? info[UIImagePickerControllerOriginalImage] as? UIImage : info[UIImagePickerControllerEditedImage] as? UIImage
+        self.dreamImageView.image =  info[UIImagePickerControllerEditedImage] as? UIImage == nil ? info[UIImagePickerControllerOriginalImage] as? UIImage : info[UIImagePickerControllerEditedImage] as? UIImage
         
-        imagePicker.dismiss(animated: true, completion: nil)
+        self.imagePicker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        imagePicker.dismiss(animated: true, completion: nil)
+        self.imagePicker.dismiss(animated: true, completion: nil)
     }
     
 }
