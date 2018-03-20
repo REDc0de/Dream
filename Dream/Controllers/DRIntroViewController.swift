@@ -1,5 +1,5 @@
 //
-//  DRIntoViewController.swift
+//  DRIntroViewController.swift
 //  Dream
 //
 //  Created by Bogdan Chaikovsky on 28.02.18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DRIntoViewController: UIViewController {
+class DRIntroViewController: UIViewController {
 
     @IBAction func done(_ sender: UIButton) {
         UserDefaults.standard.set(true, forKey: "isNeedToPresentIntro")

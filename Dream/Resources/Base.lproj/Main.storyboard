@@ -106,17 +106,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
-                        <segue destination="m2t-HB-pSY" kind="presentation" identifier="DRIntoViewController" id="LRx-f0-IS5"/>
+                        <segue destination="m2t-HB-pSY" kind="presentation" identifier="DRIntroViewController" id="LRx-f0-IS5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wja-3T-mjq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2101.5999999999999" y="122.66009852216749"/>
         </scene>
-        <!--Into View Controller-->
+        <!--Intro View Controller-->
         <scene sceneID="4ns-NN-7KA">
             <objects>
-                <viewController id="m2t-HB-pSY" customClass="DRIntoViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="m2t-HB-pSY" customClass="DRIntroViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TEA-WV-qxw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +136,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="done:" destination="m2t-HB-pSY" eventType="touchUpInside" id="C5G-5V-XNe"/>
+                                    <action selector="done:" destination="m2t-HB-pSY" eventType="touchUpInside" id="bTt-ZJ-T6Z"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="moN-cg-HB5">
@@ -182,13 +182,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-sj-BWx" customClass="DRTimerCircleProgressView" customModule="Dream" customModuleProvider="target">
-                                <rect key="frame" x="18.666666666666657" y="193" width="337.66666666666674" height="415"/>
+                                <rect key="frame" x="15.666666666666657" y="193" width="344" height="415"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-Rq-xrc" customClass="UICircleProgressView" customModule="Dream" customModuleProvider="target">
-                                        <rect key="frame" x="30.666666666666657" y="69.333333333333314" width="275.33333333333337" height="275.33333333333331"/>
+                                        <rect key="frame" x="35.666666666666686" y="71" width="272" height="272"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKm-wk-pPE">
-                                                <rect key="frame" x="105" y="109.66666666666669" width="66" height="57"/>
+                                                <rect key="frame" x="103.33333333333331" y="108" width="66" height="57"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -202,7 +202,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                                <real key="value" value="28"/>
+                                                <real key="value" value="32"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
                                                 <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -215,13 +215,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="a5J-Rq-xrc" firstAttribute="width" secondItem="b8V-sj-BWx" secondAttribute="width" multiplier="31:38" id="dOe-xE-e1m"/>
+                                    <constraint firstItem="a5J-Rq-xrc" firstAttribute="width" secondItem="b8V-sj-BWx" secondAttribute="width" multiplier="30:38" id="dOe-xE-e1m"/>
                                     <constraint firstItem="a5J-Rq-xrc" firstAttribute="centerY" secondItem="b8V-sj-BWx" secondAttribute="centerY" id="ga5-US-Z2L"/>
                                     <constraint firstItem="a5J-Rq-xrc" firstAttribute="centerX" secondItem="b8V-sj-BWx" secondAttribute="centerX" id="tsh-sP-7ko"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                        <real key="value" value="28"/>
+                                        <real key="value" value="32"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
                                         <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -321,7 +321,7 @@
                             <constraint firstItem="b8V-sj-BWx" firstAttribute="top" secondItem="DGr-V4-nnh" secondAttribute="bottom" constant="5" id="0XX-yO-5Xk"/>
                             <constraint firstItem="DQ0-Fd-JjR" firstAttribute="leading" secondItem="VwZ-A5-fT1" secondAttribute="trailing" constant="5" id="26a-a3-3qe"/>
                             <constraint firstItem="DQ0-Fd-JjR" firstAttribute="trailing" secondItem="mbl-ZU-i0I" secondAttribute="trailing" constant="-20" id="2Zf-sh-Eq1"/>
-                            <constraint firstItem="b8V-sj-BWx" firstAttribute="width" secondItem="j0n-zO-a5B" secondAttribute="width" multiplier="9:10" id="5n9-XV-szE"/>
+                            <constraint firstItem="b8V-sj-BWx" firstAttribute="width" secondItem="j0n-zO-a5B" secondAttribute="width" multiplier="11:12" id="5n9-XV-szE"/>
                             <constraint firstItem="VwZ-A5-fT1" firstAttribute="top" secondItem="5XS-2k-0Ml" secondAttribute="top" id="7Ew-Rr-Nrg"/>
                             <constraint firstItem="rHC-gn-nOh" firstAttribute="bottom" secondItem="mbl-ZU-i0I" secondAttribute="bottom" constant="15" id="8Du-qZ-vcG"/>
                             <constraint firstItem="rHC-gn-nOh" firstAttribute="trailing" secondItem="kSv-j6-fZy" secondAttribute="trailing" constant="15" id="8uq-6A-5Lv"/>
@@ -679,7 +679,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vSF-nM-rQW"/>
+        <segue reference="rHL-7s-WdD"/>
         <segue reference="0ni-Pf-uLA"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -40,7 +40,7 @@ class DRDreamsTableViewController: UITableViewController {
         let isNeedToPresentIntro = UserDefaults.standard.bool(forKey: "isNeedToPresentIntro")
         
         if !isNeedToPresentIntro {
-            self.performSegue(withIdentifier: "DRIntoViewController", sender: self)
+            self.performSegue(withIdentifier: "DRIntroViewController", sender: self)
         }
     }
     
