@@ -39,7 +39,7 @@ class DRDreamsTableViewController: UITableViewController {
         
         let isNeedToPresentIntro = UserDefaults.standard.bool(forKey: "isNeedToPresentIntro")
         
-        if !isNeedToPresentIntro {
+        if isNeedToPresentIntro {
             self.performSegue(withIdentifier: "DRIntroViewController", sender: self)
         }
     }
@@ -66,16 +66,6 @@ class DRDreamsTableViewController: UITableViewController {
         self.navigationItem.hidesSearchBarWhenScrolling = true
         
         self.definesPresentationContext = true
-    }
-    
-    fileprivate func moveItem(at sourceIndex: Int, to destinationIndex: Int) {
-        guard sourceIndex != destinationIndex else {
-            return
-        }
-        
-        let dream = self.dreams[sourceIndex]
-        self.dreams.remove(at: sourceIndex)
-        self.dreams.insert(dream, at: destinationIndex)
     }
     
     @objc fileprivate func update() {
@@ -154,8 +144,12 @@ class DRDreamsTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? DRDreamTableViewCell {
-            guard let indexPath      = tableView.indexPath(for: cell)              else { return }
-            guard let viewController = segue.destination as? DRDreamViewController else { return }
+            guard let indexPath = tableView.indexPath(for: cell) else {
+                return
+            }
+            guard let viewController = segue.destination as? DRDreamViewController else {
+                return
+            }
             
             let array = self.isFiltering() ? self.filteredDreams : self.dreams
             viewController.dream = array[indexPath.row]
@@ -168,9 +162,10 @@ extension DRDreamsTableViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.isActive {
-            self.filteredDreams = self.dreams.filter({( dream : Dream) -> Bool in
+            self.filteredDreams = self.dreams.filter({( dream: Dream) -> Bool in
+                let text = searchController.searchBar.text ?? String()
                 
-                return dream.name?.lowercased().contains((searchController.searchBar.text ?? String()).lowercased()) ?? false
+                return dream.name?.lowercased().contains(text.lowercased()) ?? false
             })
         }
         self.tableView.reloadData()

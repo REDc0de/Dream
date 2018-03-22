@@ -11,7 +11,7 @@ import UIKit
 class DRIntroViewController: UIViewController {
 
     @IBAction func done(_ sender: UIButton) {
-        UserDefaults.standard.set(true, forKey: "isNeedToPresentIntro")
+        UserDefaults.standard.set(false, forKey: "isNeedToPresentIntro")
         self.dismiss(animated: true, completion: nil)
     }
 

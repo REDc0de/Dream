@@ -30,7 +30,7 @@ class DRAddTableViewController: UITableViewController {
     private var name: String?
     private var info: String?
     private var startDate: Date?
-    private var targetDate: Date = Date() {
+    private var targetDate = Date() {
         didSet {
             self.targetDateLabel.text = DateFormatter.localizedString(from: self.datePicker.date, dateStyle: .long, timeStyle: .short)
         }

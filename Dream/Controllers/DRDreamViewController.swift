@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DRDreamViewController: UIViewController, UITextFieldDelegate {
+class DRDreamViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -71,7 +71,7 @@ class DRDreamViewController: UIViewController, UITextFieldDelegate {
 
     private func updateCreditsProgress() {
         self.creditsProgressView.value = Float(self.creditsProgress)
-        self.percentageLabel.text      = " \(Int(self.creditsProgress * 100))%"
+        self.percentageLabel.text = " \(Int(self.creditsProgress * 100))%"
     }
     
     private func updateCreditslabel() {
