@@ -35,7 +35,7 @@ class DRDreamTableViewCell: UITableViewCell {
         self.nameLabel.text = dream.name
         self.creditsLabel.text = String(format: "%.f$", dream.currentCredits) + "/" + String(format: "%.f$", dream.targetCredits)
         self.timerLabel.scheduleTimer(targetDate: dream.targetDate!)
-        self.backgroundImageView.image = UIImage.init(data: dream.image ?? Data())
+        self.backgroundImageView.image = UIImage(data: dream.image ?? Data())
     }
     
 }
