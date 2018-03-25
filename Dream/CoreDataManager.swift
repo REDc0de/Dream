@@ -19,7 +19,7 @@ class CoreDataManager {
     
     // MARK: - Methods
     
-    public func addDream(uuid: String, name: String, startDate: Date, targetDate: Date, currentCredits: Double, targetCredits: Double, image: Data, info: String) {
+    public func addDream(uuid: String, name: String, startDate: Date, targetDate: Date, currentCredits: Double, targetCredits: Double, image: Data?, info: String?) {
         guard let entity = NSEntityDescription.entity(forEntityName: "Dream", in: self.managedObjectContext) else {
             print("CoreDataManager: add entity error")
             

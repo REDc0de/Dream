@@ -17,16 +17,6 @@ class DRHistoryTableViewController: UITableViewController {
     
     // MARK: - Lifecicle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -34,8 +24,10 @@ class DRHistoryTableViewController: UITableViewController {
         
         let array = self.dream?.transactions ?? []
         
-        for transaction in array {
-            self.transactions.append(transaction as! Transaction)
+        for item in array {
+            if let transaction = item as? Transaction {
+                self.transactions.append(transaction)
+            }
         }
         
         self.transactions = self.transactions.sorted(by: {$0.date! > $1.date!})

@@ -25,7 +25,16 @@ class DRDreamsTableViewController: UITableViewController {
         
         self.clearsSelectionOnViewWillAppear = true
         self.tableView.backgroundView = DREmtyTableView()
-        self.setupNavBar()
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        
+        self.navigationItem.searchController = self.searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = true
+        
+        self.definesPresentationContext = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,18 +65,6 @@ class DRDreamsTableViewController: UITableViewController {
         return self.searchController.searchBar.text?.isEmpty ?? true
     }
     
-    fileprivate func setupNavBar() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        self.searchController.searchResultsUpdater = self
-        self.searchController.obscuresBackgroundDuringPresentation = false
-        
-        self.navigationItem.searchController = self.searchController
-        self.navigationItem.hidesSearchBarWhenScrolling = true
-        
-        self.definesPresentationContext = true
-    }
-    
     @objc fileprivate func update() {
         self.dreams = CoreDataManager.sharedInstance.fetchDreams().sorted(by: {
             $0.targetDate! < $1.targetDate!
@@ -77,6 +74,7 @@ class DRDreamsTableViewController: UITableViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
             self.refreshControl?.endRefreshing()
         })
+        
         self.tableView.reloadData()
     }
     
@@ -96,26 +94,17 @@ class DRDreamsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRDreamsTableViewControllerCell", for: indexPath)
         
-        let dreamsArray = self.isFiltering() ? self.filteredDreams : self.dreams
-        
         if let cell = cell as? DRDreamTableViewCell {
+            let dreamsArray = self.isFiltering() ? self.filteredDreams : self.dreams
             cell.dream = dreamsArray[indexPath.row]
         }
 
         return cell
     }
-    
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 
-        return true
-    }
-    
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            
+
             var dream: Dream
             
             if self.isFiltering() {
@@ -135,8 +124,6 @@ class DRDreamsTableViewController: UITableViewController {
             CoreDataManager.sharedInstance.saveContext()
 
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     
@@ -151,8 +138,8 @@ class DRDreamsTableViewController: UITableViewController {
                 return
             }
             
-            let array = self.isFiltering() ? self.filteredDreams : self.dreams
-            viewController.dream = array[indexPath.row]
+            let dreamsArray = self.isFiltering() ? self.filteredDreams : self.dreams
+            viewController.dream = dreamsArray[indexPath.row]
         }
     }
     

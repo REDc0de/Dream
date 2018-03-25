@@ -53,7 +53,9 @@ class DRAddTableViewController: UITableViewController {
         self.imagePicker.delegate = self
         self.imagePicker.allowsEditing = true
         
-        self.datePicker.minimumDate = Date()
+        self.datePicker.minimumDate = self.dream?.targetDate == nil ? Date() : self.dream?.startDate
+
+        self.navigationItem.title = self.dream?.name == nil ? "New Dream" : self.dream?.name
         
         if let dream = self.dream {
             self.targetDate = dream.targetDate ?? Date()
@@ -223,22 +225,26 @@ class DRAddTableViewController: UITableViewController {
     }
     
     @IBAction func done(_ sender: UIBarButtonItem) {
-        // For tests
         
-        if !(self.dream != nil) {
+        if self.dream == nil {
             CoreDataManager.sharedInstance.addDream(uuid: UUID().uuidString,
                                                     name: self.nameTextField.text ?? "Dream",
                                                     startDate: Date(),
                                                     targetDate: self.targetDate,
                                                     currentCredits: 0,
                                                     targetCredits: Double(self.targetAmountTextField.text ?? "") ?? 0,
-                                                    image: UIImagePNGRepresentation(self.dreamImageView.image ?? UIImage()) ?? Data(),
-                                                    info: self.infoView.text ?? "")
+                                                    image: UIImagePNGRepresentation(self.dreamImageView.image ?? UIImage()),
+                                                    info: self.infoView.text)
         } else {
             self.dream?.name = self.nameTextField.text ?? "Dream"
             self.dream?.targetDate = self.targetDate
             self.dream?.targetCredits = Double(self.targetAmountTextField.text ?? "") ?? 0
-            self.dream?.info = self.infoView.text ?? ""
+            self.dream?.info = self.infoView.text
+            
+            let imageData = UIImagePNGRepresentation(self.dreamImageView.image ?? UIImage())
+            if self.dream?.image != imageData {
+                self.dream?.image = imageData
+            }
         }
         
         CoreDataManager.sharedInstance.saveContext()
