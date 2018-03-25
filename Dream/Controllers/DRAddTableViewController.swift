@@ -56,9 +56,9 @@ class DRAddTableViewController: UITableViewController {
         self.datePicker.minimumDate = self.dream?.targetDate == nil ? Date() : self.dream?.startDate
 
         self.navigationItem.title = self.dream?.name == nil ? "New Dream" : self.dream?.name
+        self.targetDate = self.dream?.targetDate ?? Date()
         
         if let dream = self.dream {
-            self.targetDate = dream.targetDate ?? Date()
             self.nameTextField.text = dream.name
             self.infoView.text = dream.info
             self.targetAmountTextField.text = String(dream.targetCredits)
