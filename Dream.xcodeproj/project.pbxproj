@@ -29,7 +29,6 @@
 		43E4262E2037A07700DEB77F /* DRAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E4262D2037A07700DEB77F /* DRAddTableViewController.swift */; };
 		43E426302037A08D00DEB77F /* DRHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E4262F2037A08D00DEB77F /* DRHistoryTableViewController.swift */; };
 		43E426322037A0A100DEB77F /* DRDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E426312037A0A100DEB77F /* DRDreamViewController.swift */; };
-		43E426362037B1AB00DEB77F /* UIColor+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E426352037B1AB00DEB77F /* UIColor+Palette.swift */; };
 		43E426382037B1CE00DEB77F /* Double+Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E426372037B1CE00DEB77F /* Double+Progress.swift */; };
 		B0D837B6203C5604005F48E0 /* UIViewController+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D837B5203C5604005F48E0 /* UIViewController+UIAlertController.swift */; };
 /* End PBXBuildFile section */
@@ -80,7 +79,6 @@
 		43E4262D2037A07700DEB77F /* DRAddTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRAddTableViewController.swift; sourceTree = "<group>"; };
 		43E4262F2037A08D00DEB77F /* DRHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHistoryTableViewController.swift; sourceTree = "<group>"; };
 		43E426312037A0A100DEB77F /* DRDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDreamViewController.swift; sourceTree = "<group>"; };
-		43E426352037B1AB00DEB77F /* UIColor+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Palette.swift"; sourceTree = "<group>"; };
 		43E426372037B1CE00DEB77F /* Double+Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Progress.swift"; sourceTree = "<group>"; };
 		B0D837B5203C5604005F48E0 /* UIViewController+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlertController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,7 +119,6 @@
 		43D39B4C205B0AE400FBCA98 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				43E426352037B1AB00DEB77F /* UIColor+Palette.swift */,
 				436FCA962055F30300AA91F4 /* UIView+CALayer.swift */,
 				B0D837B5203C5604005F48E0 /* UIViewController+UIAlertController.swift */,
 			);
@@ -396,7 +393,6 @@
 				43E4262A2037A04B00DEB77F /* DRDreamsTableViewController.swift in Sources */,
 				43D39B47205AF20300FBCA98 /* UICircleProgressView.swift in Sources */,
 				433F271C20473FB70050C44C /* DRIntroViewController.swift in Sources */,
-				43E426362037B1AB00DEB77F /* UIColor+Palette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
