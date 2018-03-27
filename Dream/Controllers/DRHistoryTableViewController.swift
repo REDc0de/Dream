@@ -51,7 +51,7 @@ class DRHistoryTableViewController: UITableViewController {
         
         let string = self.transactions[indexPath.row].credits > 0 ? ("+" + String(self.transactions[indexPath.row].credits)) : String(self.transactions[indexPath.row].credits)
         cell.textLabel?.text = string
-        cell.textLabel?.textColor = self.transactions[indexPath.row].credits < 0 ? .thunderbird : .shamrock
+        cell.textLabel?.textColor = self.transactions[indexPath.row].credits < 0 ? #colorLiteral(red: 0.8509803922, green: 0.1176470588, blue: 0.09411764706, alpha: 1) : #colorLiteral(red: 0.2174585164, green: 0.8184141517, blue: 0, alpha: 1)
         
         let date = self.transactions[indexPath.row].date
         let formatter = DateFormatter()
