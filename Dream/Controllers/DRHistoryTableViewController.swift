@@ -45,15 +45,16 @@ class DRHistoryTableViewController: UITableViewController {
         return self.transactions.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DRHistoryTableViewController", for: indexPath)
         
-        let string = self.transactions[indexPath.row].credits > 0 ? ("+" + String(self.transactions[indexPath.row].credits)) : String(self.transactions[indexPath.row].credits)
-        cell.textLabel?.text = string
-        cell.textLabel?.textColor = self.transactions[indexPath.row].credits < 0 ? #colorLiteral(red: 0.8509803922, green: 0.1176470588, blue: 0.09411764706, alpha: 1) : #colorLiteral(red: 0.2174585164, green: 0.8184141517, blue: 0, alpha: 1)
+        let transaction = self.transactions[indexPath.row]
         
-        let date = self.transactions[indexPath.row].date
+        let symbol = transaction.credits > 0 ? "+" : ""
+        cell.textLabel?.text = String(format: symbol + "%.f$", transaction.credits)
+        cell.textLabel?.textColor = transaction.credits < 0 ? #colorLiteral(red: 0.8509803922, green: 0.1176470588, blue: 0.09411764706, alpha: 1) : #colorLiteral(red: 0.2174585164, green: 0.8184141517, blue: 0, alpha: 1)
+        
+        let date = transaction.date
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy HH:mm"
         let result = formatter.string(from: date ?? Date())
