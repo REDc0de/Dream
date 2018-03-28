@@ -194,11 +194,18 @@
                                 <rect key="frame" x="15.666666666666657" y="193" width="344" height="415"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-Rq-xrc" customClass="UICircleProgressView" customModule="Dream" customModuleProvider="target">
-                                        <rect key="frame" x="35.666666666666686" y="71" width="272" height="272"/>
+                                        <rect key="frame" x="34" y="69.333333333333314" width="275.33333333333331" height="275.33333333333331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKm-wk-pPE">
-                                                <rect key="frame" x="103.33333333333331" y="108" width="66" height="57"/>
+                                                <rect key="frame" x="105" y="109.66666666666669" width="66" height="57"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="120$ per day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWi-A4-Fgh">
+                                                <rect key="frame" x="87.000000000000085" y="168.99999999999994" width="101" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -224,7 +231,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="a5J-Rq-xrc" firstAttribute="width" secondItem="b8V-sj-BWx" secondAttribute="width" multiplier="30:38" id="dOe-xE-e1m"/>
+                                    <constraint firstItem="a5J-Rq-xrc" firstAttribute="width" secondItem="b8V-sj-BWx" secondAttribute="width" multiplier="32:40" id="dOe-xE-e1m"/>
                                     <constraint firstItem="a5J-Rq-xrc" firstAttribute="centerY" secondItem="b8V-sj-BWx" secondAttribute="centerY" id="ga5-US-Z2L"/>
                                     <constraint firstItem="a5J-Rq-xrc" firstAttribute="centerX" secondItem="b8V-sj-BWx" secondAttribute="centerX" id="tsh-sP-7ko"/>
                                 </constraints>
@@ -248,6 +255,20 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go0-oz-ImF">
+                                <rect key="frame" x="179" y="268" width="18" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffQ-1l-cgM">
+                                <rect key="frame" x="179" y="236" width="18" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kSv-j6-fZy" customClass="DRTimerLabel" customModule="Dream" customModuleProvider="target">
@@ -690,7 +711,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vSF-nM-rQW"/>
+        <segue reference="rHL-7s-WdD"/>
         <segue reference="0ni-Pf-uLA"/>
     </inferredMetricsTieBreakers>
 </document>
