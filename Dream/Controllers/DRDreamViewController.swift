@@ -45,11 +45,12 @@ class DRDreamViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.largeTitleDisplayMode = .never
-        self.navigationItem.title = self.dream?.name
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationItem.title = self.dream?.name
         
         self.updateCreditslabel()
         self.updateCreditsProgress()
