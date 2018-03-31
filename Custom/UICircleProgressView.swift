@@ -61,7 +61,7 @@ class UICircleProgressView: UIView {
         set {
             let width = CGFloat(newValue)
             
-            self.shapeLayer      .lineWidth = width
+            self.shapeLayer.lineWidth = width
             self.backgroundLayer?.lineWidth = width
         }
     }
