@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4329D8B0207026D400C9AFC2 /* DRPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4329D8AF207026D400C9AFC2 /* DRPageViewController.swift */; };
 		433F271C20473FB70050C44C /* DRIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433F271B20473FB70050C44C /* DRIntroViewController.swift */; };
 		4360A858204DD06700ED558F /* Date+Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360A857204DD06700ED558F /* Date+Difference.swift */; };
 		436E23832048A832004B0298 /* DREmtyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436E23822048A832004B0298 /* DREmtyTableView.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4329D8AF207026D400C9AFC2 /* DRPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRPageViewController.swift; sourceTree = "<group>"; };
 		433F271B20473FB70050C44C /* DRIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRIntroViewController.swift; sourceTree = "<group>"; };
 		4360A857204DD06700ED558F /* Date+Difference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Difference.swift"; sourceTree = "<group>"; };
 		436E23822048A832004B0298 /* DREmtyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREmtyTableView.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				43E4262D2037A07700DEB77F /* DRAddTableViewController.swift */,
 				43E4262F2037A08D00DEB77F /* DRHistoryTableViewController.swift */,
 				43E426312037A0A100DEB77F /* DRDreamViewController.swift */,
+				4329D8AF207026D400C9AFC2 /* DRPageViewController.swift */,
 				433F271B20473FB70050C44C /* DRIntroViewController.swift */,
 			);
 			path = Controllers;
@@ -391,6 +394,7 @@
 				436FCA932055D01500AA91F4 /* DRDreamTableViewCell.swift in Sources */,
 				B0D837B6203C5604005F48E0 /* UIViewController+UIAlertController.swift in Sources */,
 				43E4262A2037A04B00DEB77F /* DRDreamsTableViewController.swift in Sources */,
+				4329D8B0207026D400C9AFC2 /* DRPageViewController.swift in Sources */,
 				43D39B47205AF20300FBCA98 /* UICircleProgressView.swift in Sources */,
 				433F271C20473FB70050C44C /* DRIntroViewController.swift in Sources */,
 			);
