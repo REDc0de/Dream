@@ -104,6 +104,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Dreams" id="Fnb-uh-7Wu">
+                        <barButtonItem key="leftBarButtonItem" title="Page" id="Ea7-hd-8Pr">
+                            <connections>
+                                <segue destination="7gP-mj-FpX" kind="presentation" id="cUy-H9-5yn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jxF-du-iEM">
                             <connections>
                                 <segue destination="rRD-pp-ZVF" kind="presentation" id="vSF-nM-rQW"/>
@@ -182,10 +187,18 @@
             </objects>
             <point key="canvasLocation" x="3214" y="123"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="MWG-SJ-BGa">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="7gP-mj-FpX" customClass="DRPageViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="arR-r6-6Kt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002" y="971"/>
+        </scene>
         <!--Dream-->
         <scene sceneID="UnD-WZ-pym">
             <objects>
-                <viewController id="NHT-i1-DyJ" customClass="DRDreamViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DRDreamViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NHT-i1-DyJ" customClass="DRDreamViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j0n-zO-a5B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -407,7 +420,7 @@
         <!--History-->
         <scene sceneID="hRV-Bl-74y">
             <objects>
-                <tableViewController id="18c-0q-seu" customClass="DRHistoryTableViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DRHistoryTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="18c-0q-seu" customClass="DRHistoryTableViewController" customModule="Dream" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bTr-c3-oaz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

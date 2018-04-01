@@ -12,8 +12,8 @@ class DRPageViewController: UIPageViewController {
     
     fileprivate lazy var pages: [UIViewController] = {
         return [
-            self.getViewController(withIdentifier: "identifier1"),
-            self.getViewController(withIdentifier: "identifier2")
+            self.getViewController(withIdentifier: "DRDreamViewController"),
+            self.getViewController(withIdentifier: "DRHistoryTableViewController")
         ]
     }()
     
