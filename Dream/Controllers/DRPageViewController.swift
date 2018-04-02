@@ -44,12 +44,14 @@ extension DRPageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        guard let viewControllerIndex = pages.index(of: viewController) else { return nil }
+        guard let viewControllerIndex = pages.index(of: viewController) else {
+            return nil
+        }
         
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            return pages.last
+            return nil
         }
         
         guard pages.count > previousIndex else {
@@ -67,7 +69,7 @@ extension DRPageViewController: UIPageViewControllerDataSource {
         let nextIndex = viewControllerIndex + 1
         
         guard nextIndex < pages.count else {
-            return pages.first
+            return nil
         }
         
         guard pages.count > nextIndex else {
