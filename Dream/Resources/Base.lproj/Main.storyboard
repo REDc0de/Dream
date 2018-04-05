@@ -206,7 +206,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-sj-BWx" customClass="DRTimerCircleProgressView" customModule="Dream" customModuleProvider="target">
                                 <rect key="frame" x="15.666666666666657" y="193" width="344" height="415"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-Rq-xrc" customClass="UICircleProgressView" customModule="Dream" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-Rq-xrc" customClass="DRCircleProgressView" customModule="Dream" customModuleProvider="target">
                                         <rect key="frame" x="34" y="69.333333333333314" width="275.33333333333331" height="275.33333333333331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKm-wk-pPE">
@@ -239,6 +239,7 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="backgroundLineColor">
                                                 <color key="value" white="0.66666666666666663" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="symbol" value="$"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>

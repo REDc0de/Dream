@@ -18,6 +18,7 @@
 		43D39B49205AF2C600FBCA98 /* DRTimerCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D39B48205AF2C600FBCA98 /* DRTimerCircleProgressView.swift */; };
 		43D39B4B205B03F600FBCA98 /* Dream+HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D39B4A205B03F600FBCA98 /* Dream+HelperMethods.swift */; };
 		43D39B50205B0EA100FBCA98 /* DRTimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D39B4F205B0EA100FBCA98 /* DRTimerLabel.swift */; };
+		43D973382076957300366259 /* DRCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D973372076957300366259 /* DRCircleProgressView.swift */; };
 		43E425F2203791B300DEB77F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F1203791B300DEB77F /* AppDelegate.swift */; };
 		43E425F7203791B300DEB77F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E425F5203791B300DEB77F /* Main.storyboard */; };
 		43E425FA203791B300DEB77F /* Dream.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43E425F8203791B300DEB77F /* Dream.xcdatamodeld */; };
@@ -63,6 +64,7 @@
 		43D39B48205AF2C600FBCA98 /* DRTimerCircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRTimerCircleProgressView.swift; sourceTree = "<group>"; };
 		43D39B4A205B03F600FBCA98 /* Dream+HelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Dream+HelperMethods.swift"; path = "Dream/Models/Dream+HelperMethods.swift"; sourceTree = SOURCE_ROOT; };
 		43D39B4F205B0EA100FBCA98 /* DRTimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRTimerLabel.swift; sourceTree = "<group>"; };
+		43D973372076957300366259 /* DRCircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRCircleProgressView.swift; sourceTree = "<group>"; };
 		43E425EE203791B300DEB77F /* Dream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E425F1203791B300DEB77F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43E425F6203791B300DEB77F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				43D39B48205AF2C600FBCA98 /* DRTimerCircleProgressView.swift */,
 				436FCA922055D01500AA91F4 /* DRDreamTableViewCell.swift */,
 				43D39B4F205B0EA100FBCA98 /* DRTimerLabel.swift */,
+				43D973372076957300366259 /* DRCircleProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				B0D837B6203C5604005F48E0 /* UIViewController+UIAlertController.swift in Sources */,
 				43E4262A2037A04B00DEB77F /* DRDreamsTableViewController.swift in Sources */,
 				4329D8B0207026D400C9AFC2 /* DRPageViewController.swift in Sources */,
+				43D973382076957300366259 /* DRCircleProgressView.swift in Sources */,
 				43D39B47205AF20300FBCA98 /* UICircleProgressView.swift in Sources */,
 				433F271C20473FB70050C44C /* DRIntroViewController.swift in Sources */,
 			);
