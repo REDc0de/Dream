@@ -204,10 +204,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-sj-BWx" customClass="DRTimerCircleProgressView" customModule="Dream" customModuleProvider="target">
-                                <rect key="frame" x="15.666666666666657" y="193" width="344" height="415"/>
+                                <rect key="frame" x="15.666666666666657" y="183" width="344" height="425"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-Rq-xrc" customClass="DRCircleProgressView" customModule="Dream" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="69.333333333333314" width="275.33333333333331" height="275.33333333333331"/>
+                                        <rect key="frame" x="34" y="74.333333333333314" width="275.33333333333331" height="275.33333333333331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKm-wk-pPE">
                                                 <rect key="frame" x="105" y="109.66666666666669" width="66" height="57"/>
@@ -262,17 +262,17 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DGr-V4-nnh">
-                                <rect key="frame" x="135" y="148" width="225" height="40"/>
+                                <rect key="frame" x="135" y="143" width="225" height="35"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="sgM-mm-2wn"/>
+                                    <constraint firstAttribute="height" constant="35" id="sgM-mm-2wn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kSv-j6-fZy" customClass="DRTimerLabel" customModule="Dream" customModuleProvider="target">
-                                <rect key="frame" x="135" y="103" width="225" height="40"/>
+                                <rect key="frame" x="135" y="103" width="225" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
