@@ -204,13 +204,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-sj-BWx" customClass="DRTimerCircleProgressView" customModule="Dream" customModuleProvider="target">
-                                <rect key="frame" x="15.666666666666657" y="183" width="344" height="425"/>
+                                <rect key="frame" x="15.666666666666657" y="182.99999999999997" width="344" height="429.33333333333326"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-Rq-xrc" customClass="DRCircleProgressView" customModule="Dream" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="74.333333333333314" width="275.33333333333331" height="275.33333333333331"/>
+                                        <rect key="frame" x="34" y="76.666666666666686" width="275.33333333333331" height="275.33333333333331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKm-wk-pPE">
-                                                <rect key="frame" x="105" y="109.66666666666669" width="66" height="57"/>
+                                                <rect key="frame" x="105" y="110" width="66" height="57"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -278,11 +278,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XS-2k-0Ml">
-                                <rect key="frame" x="49.666666666666657" y="628" width="58.333333333333343" height="58"/>
+                                <rect key="frame" x="54" y="632.33333333333337" width="54" height="53.666666666666629"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5XS-2k-0Ml" secondAttribute="height" multiplier="1:1" id="SZS-PC-DPw"/>
-                                    <constraint firstAttribute="width" constant="58" id="ahy-T6-6DX"/>
+                                    <constraint firstAttribute="width" constant="54" id="ahy-T6-6DX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -299,7 +299,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQ0-Fd-JjR">
-                                <rect key="frame" x="268" y="628" width="58" height="58"/>
+                                <rect key="frame" x="268" y="632.33333333333337" width="53.666666666666686" height="53.666666666666629"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DQ0-Fd-JjR" secondAttribute="height" multiplier="1:1" id="QF3-nQ-dCq"/>
@@ -340,7 +340,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VwZ-A5-fT1">
-                                <rect key="frame" x="113" y="628" width="150" height="58"/>
+                                <rect key="frame" x="113" y="632.33333333333337" width="150" height="53.666666666666629"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
